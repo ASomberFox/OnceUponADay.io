@@ -1,0 +1,10 @@
+All none CSS base effects, backgrounds, characters, and music will follow this format for loading:
+
+Effects -> backgrounds -> characters -> music
+
+Name formats for files shall be:
+
+eff_name_state
+bg_name_state
+char_name_expression
+mu_name_state

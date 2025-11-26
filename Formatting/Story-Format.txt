@@ -1,0 +1,3 @@
+Story Files shall be stored as such as CSVs:
+
+Active Objs  Speaker Expression  Sound  Text    SpecialEvent    SpecialEffect   CharX   CharY   CharZ   CharScale

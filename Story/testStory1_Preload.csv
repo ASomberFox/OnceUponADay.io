@@ -1,0 +1,11 @@
+type, name, state
+bg, test, 0
+bg, test, 1
+char, Kezia, happy
+char, Kezia, sad
+char, Kezia, neutral
+char, Kezia, angry
+char, Andra, happy
+char, Andra, sad
+char, Andra, neutral
+char, Andra, angry

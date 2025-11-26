@@ -1,0 +1,12 @@
+The story selection process:
+
+On story selection
+    create window
+    show loading icon
+    read Story.csv
+    preload all assets
+    load frame 1
+    ...
+    show loading icon
+    close window
+    delete window content
