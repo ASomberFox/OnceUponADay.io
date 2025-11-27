@@ -1,3 +1,84 @@
+
+var frameIndex = 0;
+
+
+
+// Show loading screen
+
+
+
+/**
+ * Load Story Data
+ */
+// Read Story CSV file
+var csv_story = File('Story/testStory1.csv');
+csv_story.open('r');
+csv_story.encoding = 'UTF-8';
+var story_data = csv_story.read().split('/\r\n|\n|\r/');
+csv_story.close();
+for (var row in story_data) {
+    story_data[row].split('\t'); // Split each row into columns;
+}
+
+// Preload images
+var elements_story = new Map();
+var csv_preload = File('Story/testStory1_Preload.csv');
+csv_preload.open('r');
+csv_preload.encoding = 'UTF-8';
+var preload_data = csv_preload.read().split('/\r\n|\n|\r/');
+csv_preload.close();
+for (var row in preload_data) {
+    var cols = preload_data[row].split('\t'); // Split each row into columns;
+
+    let img = new Image();
+    //img.??? = cols[0];
+    img.id = cols[1];
+    img.className = cols[2];
+    img.src = cols[3];
+    img.transform = cols[4];
+    elements_story.set(cols[1], img);
+
+}
+
+// Setup story player
+
+function nextFrame() {
+    frameIndex++;
+    console.log("Displaying Frame: " + frameIndex);
+    return true;
+}
+
+// Setup story player functions
+
+
+
+// Load first frame
+
+
+
+// Hide loading screen
+
+
+
+// Play story
+
+
+
+// Loading screen
+
+
+/**
+ * Image grabber. Grabs image based on name. Assumes image names are in the format folder_subfolder_filename
+ * @param {*} name 
+ * @returns 
+ */
+function getImage(name) {
+    var parts = name.split('_');
+    var img_path = parts[0] + '/' + parts[1] + '/' + parts[2] + '.png';
+    return img_path;
+}
+
+
 const dialogues = document.querySelector('.story-box');
 
 var typingInterval = null;
@@ -45,38 +126,3 @@ dialogues.addEventListener('click', function() {
             }
         });
 });
-
-// const storyBox = document.querySelector('.story-box');
-
-// function loadStory(element, frame) {
-//     let img = new Image();
-//     img.src = 'imgs/bg/test_1.png';
-//     img.classList.add('bg');
-//     element.appendChild(img);
-
-//     let char1 = new Image();
-//     char1.src = 'imgs/char/Kezia/happy.png';
-//     char1.classList.add('character');
-//     char1.style="transform: scaleX(-1); left: -5%; bottom: -30%;";
-//     element.appendChild(char1);
-
-//     let char2 = new Image();
-//     char2.src = 'imgs/char/Andra/happy.png';
-//     char2.classList.add('character');
-//     char2.style="transform: scaleX(1); right: -5%; bottom: -30%;";
-//     element.appendChild(char2);
-
-//     let overlay = document.createElement('div');
-//     overlay.classList.add('overlay');
-//     element.appendChild(overlay);
-
-//     let speaker = document.createElement('p');
-//     speaker.classList.add('speaker');
-//     speaker.textContent = "Kezia";
-//     element.appendChild(speaker);
-
-//     let dialouge = document.createElement('p');
-//     dialouge.classList.add('dialouge');
-//     dialouge.textContent = "text";
-//     element.appendChild(dialouge);
-// }

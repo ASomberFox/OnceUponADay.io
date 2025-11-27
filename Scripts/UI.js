@@ -25,3 +25,4 @@ box.addEventListener('click', function() {
         cube.style.visibility = "hidden";
     }
 });
+

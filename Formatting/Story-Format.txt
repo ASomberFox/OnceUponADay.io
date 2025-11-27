@@ -1,3 +1,30 @@
 Story Files shall be stored as such as CSVs:
 
-Active Objs  Speaker Expression  Sound  Text    SpecialEvent    SpecialEffect   CharX   CharY   CharZ   CharScale
+Talking(Character, Expression, Animation, Filter, Sound, Speaker, Text): 
+
+Character   Expression      Animation          Filter    Sound       Speaker  Text
+Kezia       Angry           bounce>move=XYZS   none      "tmp.mp3"   "Kezia"  "What!"
+
+Scene(bg_Image, Animation, Filter, Sound, bg_Music)
+
+bg_Image          Animation   Filter  Sound           bg_Music
+"Stadium1.png"    fade-in     none    "birds.mp3"     "Nature.mp3"
+
+Voice(Text)
+
+Text
+"The crowd cheers, as the lights begin to dim."
+
+Narration (Text)
+
+Text
+"BANG!"
+
+Example:
+
+Scene   "test_1.png"    fade-in    none    none    none
+Talking Kezia   happy   fade-in none    none    "Kezia" "Hi everyone!"
+Voice   "The crowd goes wild."
+Talking Kezia   neutral   none  none    none    "Kezia" "This is not what I expected"
+Talking Kezia   neutral fade-out    none    none    none    none
+Text    "*Cricket noises*"
