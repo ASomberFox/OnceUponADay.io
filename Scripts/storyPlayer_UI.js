@@ -77,7 +77,7 @@ btn_Auto.addEventListener('click', function() {
             spd.textContent = "1 X";
             autoSpeed = 1;
             clearInterval(autoInterval_Play);
-            autoInteral_Play = setInterval(nextFrame, 10000 / autoSpeed);
+            autoInterval_Play = setInterval(nextFrame, 10000 / autoSpeed);
 
             autoSpeedEventListener = spd.addEventListener('click', function() {
                 autoSpeed = (autoSpeed >= 64) ? 1 : autoSpeed * 2;
