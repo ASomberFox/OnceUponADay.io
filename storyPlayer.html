@@ -6,6 +6,7 @@
     <meta name="Story Player" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="player_styles.css">
+    <link rel="icon" type="image/x-icon" href="/imgs/HeartDash_Favicon.png">
 </head>
 
 <body class="Story-Player">
@@ -13,26 +14,30 @@
     <!-- Story Player -->
     <div id="story-box">
         <img id="background"   class="bg" src="imgs/bg/test_1.png">
-
-        <!-- Temp Characters -->
-        <img id="character1" 
-            class="character" 
-            src="imgs/char/Kezia/happy.png" 
-            style="transform: scaleX(-1);
-                    left: -5%; 
-                    bottom: -30%;">
-
-        <img id="character2" 
-            class="character" 
-            src="imgs/char/Andra/happy.png"
-            style="transform: scaleX(1);
-                    filter: brightness(0.5);
-                    right: -5%; 
-                    bottom: -30%;">
+        
+        <div id="Character_Container"
+            style="position:absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);">
+        </div>
 
         <div id="overlay"   class="overlay"></div>
-        <div id="speaker"     class="speaker">
+        <div id="Text"
+            style="text-align: right;
+                    color: #aaaaaa;
+                    width: fit-content;
+                    margin: 0;
+                    bottom: 15%;
+                    right: 70%;
+                    font-size: calc(var(--true-height) *.05);
+                    font-weight: normal;
+                    position: absolute;">
+            <div id="speaker"     class="speaker">
             Kezia
+            </div>
             <p id="Dialouge"    class="dialouge"> 
                 This is a sample paragraph to demonstrate the current theme. 
             </p>
@@ -43,7 +48,11 @@
             Testing Voice...
         </div>
     
-
+        <div onclick="nextFrame()"
+            style="position: absolute;
+                    width: 100%;
+                    height: 100%;">
+        </div>
         <!-- Story Transcript -->
         <div id="Transcript" onclick="hideTranscript()">
             <div id="Story_Text">
@@ -74,7 +83,8 @@
             src="imgs/UI/hide.png" 
             alt="Hide UI"
             style=" width: 3%;
-                    left: 5%;">
+                    left: 5%;"
+            onclick="UIToggle()">
 
         <button class="UI_element"
             id="Auto"
@@ -137,8 +147,9 @@
 
     </div>
 
-    <!-- <script src="Scripts/storyPlayer.js"></script> -->
+    <script src="Scripts/Utils.js"></script>
     <script src="Scripts/storyPlayer_UI.js"></script>
-
+    <script src="Scripts/storyPlayer.js"></script>
+    
 </body>
 </html>

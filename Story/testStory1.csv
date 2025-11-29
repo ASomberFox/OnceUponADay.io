@@ -1,7 +1,0 @@
-Scene   "test_1.png"    fade-in    none    none    none
-Talking Kezia   happy   fade-in none    none    "Kezia" "Hi everyone!"
-Voice   "The crowd goes wild."
-Talking Andra   neutral   fade-in    none    none    "Andra" "..."
-Talking Kezia   neutral   none  none    none    "Kezia" "I'm not doing this again..."
-Talking Kezia   neutral fade-out    none    none    none    none
-Text    "*Cricket noises*"

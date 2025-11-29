@@ -1,14 +1,3 @@
-var $ = function( id ) { return document.getElementById( id ); };
-
-
-//!!!!!!!!
-var frameIndex = 0;
-function nextFrame() {
-    frameIndex++;
-    console.log("Displaying Frame: " + frameIndex);
-    return true;
-}
-
 //Show transcript function:-----------------------------------------------------
 function showTranscript() {
     $("Transcript").style.display = "block";
@@ -27,9 +16,10 @@ const userInterface = $('UI');
 /**
  * Hide UI and pauses the autoplay
  */
-btn_UIvis.addEventListener('click', UIToggle);
+// btn_UIvis.addEventListener('click', UIToggle);
 
 function UIToggle() {
+    console.log('UI Toggle Clicked');
     UIHidden = !UIHidden;
     if (UIHidden) {
         if (autoPlay) btn_Auto.click();

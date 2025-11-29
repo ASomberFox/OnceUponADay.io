@@ -1,0 +1,4 @@
+background	Stadium1	open	/imgs/bg/test_1.png	none
+character	Kezia	neutral	/imgs/char/Kezia/neutral.png	none
+character	Kezia	happy	/imgs/char/Kezia/happy.png	none
+character	Andra	neutral	/imgs/char/Andra/neutral.png	transform: xScale(-1)

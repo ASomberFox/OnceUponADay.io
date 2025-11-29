@@ -12,12 +12,12 @@ mu_name_state
 If a formating error is detected, an error image will be used, and failed line will be stored in "alt" data
 
 
-Object_Type Name    style       url(Neutral/Base)               filter
-character   Kezia   character   /imgs/char/Kezia/neutral.png    xScale(-1)  
+Object_Type Name    State       url(Neutral/Base)               filter
+character   Kezia   neutral   /imgs/char/Kezia/neutral.png    xScale(-1)  
 
 Example:
 
-background  Stadium1    background  /imgs/bg/test_1.png none
-character   Kezia   character   /imgs/char/Kezia/neutral.png    none
-character   Kezia   character   /imgs/char/Kezia/happy.png    none
-character   Andra   character   /imgs/char/Andra/neutral.png    xScale(-1)
+background  Stadium1    open  /imgs/bg/test_1.png none
+character   Kezia   neutral   /imgs/char/Kezia/neutral.png    none
+character   Kezia   happy   /imgs/char/Kezia/happy.png    none
+character   Andra   neutral   /imgs/char/Andra/neutral.png    transform: xScale(-1)

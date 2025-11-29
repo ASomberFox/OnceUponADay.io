@@ -1,5 +1,7 @@
 Story Files shall be stored as such as CSVs:
 
+function    param1  param2  param3  ...
+
 Talking(Character, Expression, Animation, Filter, Sound, Speaker, Text): 
 
 Character   Expression      Animation          Filter    Sound       Speaker  Text
@@ -7,13 +9,17 @@ Kezia       Angry           bounce>move=XYZS   none      "tmp.mp3"   "Kezia"  "W
 
 Scene(bg_Image, Animation, Filter, Sound, bg_Music)
 
-bg_Image          Animation   Filter  Sound           bg_Music
-"Stadium1.png"    fade-in     none    "birds.mp3"     "Nature.mp3"
+bg_Image         state  Animation   Filter  Sound           bg_Music
+Stadium1_open    open   fade-in     none    "birds.mp3"     "Nature.mp3"
 
-Voice(Text)
+Voice(Text, filter)
 
 Text
 "The crowd cheers, as the lights begin to dim."
+
+endVoice ()
+
+#Ends the voice overlay
 
 Narration (Text)
 
@@ -22,9 +28,9 @@ Text
 
 Example:
 
-Scene   "test_1.png"    fade-in    none    none    none
+Scene   Stadium1    open    fade-in    none    none    none
 Talking Kezia   happy   fade-in none    none    "Kezia" "Hi everyone!"
-Voice   "The crowd goes wild."
+Voice   "The crowd goes wild."  none
 Talking Kezia   neutral   none  none    none    "Kezia" "This is not what I expected"
 Talking Kezia   neutral fade-out    none    none    none    none
 Text    "*Cricket noises*"

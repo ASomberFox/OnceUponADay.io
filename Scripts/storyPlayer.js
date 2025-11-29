@@ -1,8 +1,3 @@
-
-var frameIndex = 0;
-
-
-
 // Show loading screen
 
 
@@ -10,73 +5,74 @@ var frameIndex = 0;
 /**
  * Load Story Data
  */
-// Read Story CSV file
-var csv_story = File('Story/testStory1.csv');
-csv_story.open('r');
-csv_story.encoding = 'UTF-8';
-var story_data = csv_story.read().split('/\r\n|\n|\r/');
-csv_story.close();
-for (var row in story_data) {
-    story_data[row].split('\t'); // Split each row into columns;
-}
+// Player and asset targets
+var player = $('story-box');
+var bg = $('background');
 
-// Preload images
-var elements_story = new Map();
-var csv_preload = File('Story/testStory1_Preload.csv');
-csv_preload.open('r');
-csv_preload.encoding = 'UTF-8';
-var preload_data = csv_preload.read().split('/\r\n|\n|\r/');
-csv_preload.close();
-for (var row in preload_data) {
-    var cols = preload_data[row].split('\t'); // Split each row into columns;
+var frameIndex = 0;     // The current story frame.
+var storyFrames = [];   // Story data for each frame.
+var preloadList = [];   // List of all assets to preload.
+var storyAssets = new Map();   // List of all story assets.
+var characterSet = new Set();   // List of all unique characters in this story.
 
-    let img = new Image();
-    //img.??? = cols[0];
-    img.id = cols[1];
-    img.className = cols[2];
-    img.src = cols[3];
-    img.transform = cols[4];
-    elements_story.set(cols[1], img);
+// Load Story Data
+var loadQueue = [];
+loadQueue.push(loadTxt('Story/testStory1.tsv'));
+loadQueue.push(loadTxt('Story/testStory1_Preload.tsv'));
 
-}
+// Preloads and preps all story data and assets
+Promise.all(loadQueue)  // Ensure all data is loaded
+    .then(([frames, assets]) => {
+        storyFrames = frames;
+        console.log("Story frames: " + frames);
 
-// Setup story player
+        preloadList = assets;
+        console.log("Story assets: " + assets);
+
+        preloadList.forEach((obj) => {
+            let ele = loadData(obj);
+            if (ele.className == 'character') {
+                characterSet.add(ele.id);
+            }
+            storyAssets.set(ele.alt, ele);
+        });
+
+        console.log("All loaded Character Assets: " + Array.from(characterSet).join(' '));
+
+        characterSet.forEach((value) => {
+            let tmp = loadData("character\t"+value+"\tneutral\t/imgs/char/missing.png\t visibility: hidden;");
+            console.log("Character: " + value + " Added");
+            //bg.after(tmp);
+            $('Character_Container').appendChild(tmp);
+        });
+
+        console.log("Loading Complete!");
+
+        // Load first frame
+        nextFrame();
+    });
 
 function nextFrame() {
-    frameIndex++;
+    console.log("Setting up Frame: " + frameIndex);
+    endVoice();
+    var param = storyFrames[frameIndex].split('\t');
+    console.log(param);
+
+    storyFunctions.get(param[0])(...param.slice(1));
+
     console.log("Displaying Frame: " + frameIndex);
+    frameIndex++;
+
+    // If complete bring up loading screen
     return true;
 }
 
-// Setup story player functions
-
-
-
-// Load first frame
-
-
-
-// Hide loading screen
-
-
-
-// Play story
-
-
-
-// Loading screen
-
-
-/**
- * Image grabber. Grabs image based on name. Assumes image names are in the format folder_subfolder_filename
- * @param {*} name 
- * @returns 
- */
-function getImage(name) {
-    var parts = name.split('_');
-    var img_path = parts[0] + '/' + parts[1] + '/' + parts[2] + '.png';
-    return img_path;
-}
+// Enables play by spacebar
+window.addEventListener('keydown', function(event) {
+    if (event.key == ' ') {
+        nextFrame();
+    }
+})
 
 
 const dialogues = document.querySelector('.story-box');
@@ -102,7 +98,7 @@ function showTextSlowly(element, text, speed = 30) {
     }, speed);
 }
 
-dialogues.addEventListener('click', function() {
+document.getElementById('Dialouge').addEventListener('click', function() {
     fetch('Text.txt')
         .then(response => response.text())
         .then(text => {
@@ -119,9 +115,9 @@ dialogues.addEventListener('click', function() {
                 clearInterval(typingInterval);
                 typingInterval = null;
                 isTyping = false;
-                this.querySelector('.dialouge').textContent = currentText;
+                this.querySelector('Dialouge').textContent = currentText;
             } else {
-                showTextSlowly(this.querySelector('.dialouge'), nextText);
+                showTextSlowly(this.querySelector('Dialouge'), nextText);
                 if (counter < dialogueLines.length) counter++;
             }
         });

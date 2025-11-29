@@ -64,7 +64,7 @@ body {
     overflow: hidden;
 }
 
-.bg {
+.background {
     background-color: transparent;
     width: 100%;
     object-fit: cover;
@@ -80,6 +80,9 @@ body {
     object-fit: cover;
     object-position: center;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .overlay {
@@ -97,7 +100,7 @@ body {
     color: #aaaaaa;
     width: fit-content;
     margin: 0;
-    bottom: 7.5%;
+    top: 0;
     right: 70%;
     font-size: calc(var(--true-height) *.05);
     font-weight: normal;
@@ -109,7 +112,7 @@ body {
     color: #ffffff;
     width: calc(var(--true-width)/2);
     margin: 0;
-    top: 0%;
+    top: 0.5ch;
     left: calc(100% + 2.5ch);
     font-size: .75em;
     position: absolute;

@@ -1,12 +1,13 @@
-The story selection process:
-
-On story selection
-    create window
-    show loading icon
-    read Story.csv
-    preload all assets
-    load frame 1
-    ...
-    show loading icon
-    close window
-    delete window content
+Todo List:
+x Finalize the asset loading process.
+x Implement nextFrame() for one function.
+- Implement all relevent functions.
+    - Implement animations.
+x Implement Autoplay feature.
+    x Have Autoplay not  
+- Implement load/unloading screen.
+- Implement "Are you sure you want to skip" window
+    - Also include a story summary for skip window.
+    - Have skip window exit back to main screen.
+- Work on HeartDash main screen.
+- Implement the text appending to Transcript
