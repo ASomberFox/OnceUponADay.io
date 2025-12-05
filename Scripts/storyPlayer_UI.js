@@ -24,13 +24,15 @@ function UIToggle() {
     if (UIHidden) {
         if (autoPlay) btn_Auto.click();
         userInterface.style.opacity = 0;
-        $('overlay').style.opacity = 0;
-        $('speaker').style.opacity = 0;
+        $('Overlay').style.opacity = 0;
+        $('Speaker').style.opacity = 0;
+        $('Dialouge').style.opacity = 0;
     }
     else {
         userInterface.style.opacity = 1;
-        $('overlay').style.opacity = 1;
-        $('speaker').style.opacity = 1;
+        $('Overlay').style.opacity = 1;
+        $('Speaker').style.opacity = 1;
+        $('Dialouge').style.opacity = 1;
     }
 
 }

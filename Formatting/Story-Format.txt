@@ -23,7 +23,7 @@ endVoice ()
 
 Narration (Text)
 
-Text
+Narration
 "BANG!"
 
 Example:
@@ -33,4 +33,4 @@ Talking Kezia   happy   fade-in none    none    "Kezia" "Hi everyone!"
 Voice   "The crowd goes wild."  none
 Talking Kezia   neutral   none  none    none    "Kezia" "This is not what I expected"
 Talking Kezia   neutral fade-out    none    none    none    none
-Text    "*Cricket noises*"
+Narration    "*Cricket noises*"

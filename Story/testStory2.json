@@ -1,0 +1,76 @@
+{
+"preload" : [
+    {"type" : "background", "name" : "Stadium1", "state": "open", "path" : "/imgs/bg/test_1.png", "transformation" : ""},
+    {"type" : "character", "name" : "Kezia", "state": "neutral", "path" : "/imgs/char/Kezia/neutral.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Kezia", "state": "happy", "path" : "/imgs/char/Kezia/happy.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Kezia", "state": "angry", "path" : "/imgs/char/Kezia/angry.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Andra", "state": "neutral", "path" : "/imgs/char/Andra/neutral.png", "transformation" : "xScale(-1) translate(-50%, -50%)"}
+]
+
+,
+"animations" : [
+    {"type" : "animation", "name" : "name"}
+]
+
+,
+"storyFrames" : [
+    {
+    "operations" : [
+        {"function" : "ResetBox" , "param" : [""]},
+        {"function" : "Scene" , "param" : ["Stadium1", "open", "fadeIn"]},
+        {"function" : "Voice" , "param" : ["In these neon lit lands.", ""]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Voice" , "param" : ["What hides under the neon lights?"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Voice" , "param" : [""]},
+        {"function" : "Narration" , "param" : ["???", "Ladies and Gentlemen! Give it up for our next contestents!"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Show" , "param" : ["Kezia", "happy", "fadeIn"]},
+        {"function" : "Narration" , "param" : ["Kezia", "*Waves at adoring crowds."]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Narration" , "param" : ["Kezia", "Hi everyone!"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Unshow" , "param" : ["Kezia"]},
+        {"function" : "Narration" , "param" : ["Andra", "..."]},
+        {"function" : "Show" , "param" : ["Andra", "neutral", "fadeIn"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Unshow" , "param" : ["Kezia"]},
+        {"function" : "Unshow" , "param" : ["Andra"]},
+        {"function" : "Show" , "param" : ["Kezia", "neutral", "", "", "translateX(-25%)", false]},
+        {"function" : "Show" , "param" : ["Andra", "neutral", "", "", "translateX(25%)", false]},
+        {"function" : "Narration" , "param" : ["", "... ... ...  "]}
+
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Speaker" , "param" : ["Kezia"]},
+        {"function" : "Show" , "param" : ["Kezia", "angry"]},
+        {"function" : "Narration" , "param" : ["Kezia", "I am NOT doing this again."]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Narration" , "param" : ["Andra", "..."]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Stall" , "param" : []}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Stall" , "param" : []}
+    ]}
+]
+
+}

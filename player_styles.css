@@ -42,12 +42,7 @@ body {
     cursor: pointer;
 }
 
-#Story_Text {
-    position: absolute;
-
-}
-
-#story-box {
+#Story-box {
     background: #000000; 
     color: #ffffff;
     object-fit: contain;
@@ -82,7 +77,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translateX(-50%) translateY(-50%); */
 }
 
 .overlay {
