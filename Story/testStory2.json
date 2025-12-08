@@ -56,11 +56,12 @@
     ,{
     "operations" : [
         {"function" : "Speaker" , "param" : ["Kezia"]},
-        {"function" : "Show" , "param" : ["Kezia", "angry"]},
-        {"function" : "Narration" , "param" : ["Kezia", "I am NOT doing this again."]}
+        {"function" : "Narration" , "param" : ["Kezia", "I am NOT doing this again."]},
+        {"function" : "Show" , "param" : ["Kezia", "angry", "", "", "", false]}
     ]}
     ,{
     "operations" : [
+        {"function" : "Speaker" , "param" : ["Andra"]},
         {"function" : "Narration" , "param" : ["Andra", "..."]}
     ]}
     ,{

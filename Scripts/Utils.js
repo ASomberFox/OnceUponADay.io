@@ -9,25 +9,31 @@ function Scene(bg_img, state, animation, filter="", sound="", bg_Music="", chain
 
     $('Background').src = storyAssets.get(bg_img + "_" + state).src;
     //append animation to target
-    let retu = Promise.resolve();
+    let retu = null;
     if (chaining) {
         retu = storyAnimations.get(animation)('Background', 1000, true);
+    }
+    else {
+        retu = Promise.resolve();
     }
     //set sound to make -----
     //set new bg music -----
     return retu;
 }
 
-function Show(target, state, animation, filter="", transformation="", chaining=true) {
+function Show(target, state, animation="", filter="", transformation="", chaining=true) {
     $('Character_Container').style.opacity = 1;
     $(target).style.visibility = 'visible';
     $(target).src = storyAssets.get(target + "_" + state).src;
     $(target).style.filter += filter;
     $(target).style.transform += transformation;
     $('Text').style.opacity = 0;
-    let retu = Promise.resolve();
+    let retu = null;
     if (chaining) {
         retu = storyAnimations.get(animation)(target, 1000, true);
+    }
+    else {
+        retu = Promise.resolve();
     }
     return retu.then(()=>{$('Text').style.opacity = 1;})
 }
@@ -53,7 +59,7 @@ function Voice(text, filter="") {
     $('Text').style.opacity = 0;
     $('Character_Container').style.opacity = 0;
     let retu = showTextSlowly($('Voice'), text);
-    return retu;
+    return Promise.resolve();
 }
 
 
@@ -63,7 +69,7 @@ function Narration(speaker, text, filter="") {
     $('Text').style.opacity = 1;
     $('Speaker').innerHTML = speaker;
     let retu = showTextSlowly($('Dialouge'), text);
-    return retu;
+    return Promise.resolve();
 }
 
 function ResetBox() {
