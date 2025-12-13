@@ -38,7 +38,7 @@ function loadStory(script_path) {
                     let tmp = loadData( {"type" : "character",
                                         "name" : value,
                                         "state": "neutral",
-                                        "path" : "/imgs/char/missing.png",
+                                        "path" : "./imgs/char/missing.png",
                                         "transformation" : "translate(-50%, -50%)"});
                     console.log("Character: " + value + " Added");
 

@@ -73,7 +73,7 @@ function Narration(speaker, text, filter="") {
 }
 
 function ResetBox() {
-    $('Background').src = "/imgs/bg/empty.jpg";
+    $('Background').src = "./imgs/bg/empty.jpg";
     $('Container').style.opacity = 0;
     Array.from($('Container').children).forEach((char) => {char.style.opacity = 0;});
     $('Overlay').style.opacity = 0;

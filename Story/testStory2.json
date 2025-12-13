@@ -1,10 +1,10 @@
 {
 "preload" : [
-    {"type" : "background", "name" : "Stadium1", "state": "open", "path" : "imgs/bg/test_1.png", "transformation" : ""},
-    {"type" : "character", "name" : "Kezia", "state": "neutral", "path" : "imgs/char/Kezia/neutral.png", "transformation" : "translate(-50%, -50%)"},
-    {"type" : "character", "name" : "Kezia", "state": "happy", "path" : "imgs/char/Kezia/happy.png", "transformation" : "translate(-50%, -50%)"},
-    {"type" : "character", "name" : "Kezia", "state": "angry", "path" : "imgs/char/Kezia/angry.png", "transformation" : "translate(-50%, -50%)"},
-    {"type" : "character", "name" : "Andra", "state": "neutral", "path" : "imgs/char/Andra/neutral.png", "transformation" : "xScale(-1) translate(-50%, -50%)"}
+    {"type" : "background", "name" : "Stadium1", "state": "open", "path" : "./imgs/bg/test_1.png", "transformation" : ""},
+    {"type" : "character", "name" : "Kezia", "state": "neutral", "path" : "./imgs/char/Kezia/neutral.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Kezia", "state": "happy", "path" : "./imgs/char/Kezia/happy.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Kezia", "state": "angry", "path" : "./imgs/char/Kezia/angry.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Andra", "state": "neutral", "path" : "./imgs/char/Andra/neutral.png", "transformation" : "xScale(-1) translate(-50%, -50%)"}
 ],
 
 
