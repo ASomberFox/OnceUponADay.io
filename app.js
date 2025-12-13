@@ -1,6 +1,6 @@
 var $ = function( id ) { return document.getElementById( id ); };
 
-const storyButtons = document.querySelectorAll('a');
+const storyButtons = $('link');
 
 storyButtons.forEach(link => {
     link.addEventListener('click', e => {
