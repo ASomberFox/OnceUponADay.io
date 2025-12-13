@@ -9,9 +9,6 @@ body {
   font-family: helvetica;
 }
 
-/* ul {
-    font-family: helvetica;
-} */
 li {
   list-style: circle;
 }
@@ -19,22 +16,21 @@ li {
 .list {
   list-style: square;
 }
-/* 
-#msg {
-  font-family: monospace;
-} */
+
 .light-theme {
     color: #000000;
     background: #0082b6;
     --btnBg: var(--black);
     --btnFontColor: var(--white);
 }
+
 .dark-theme {
     --bg: var(--black);
     --fontColor: var(--green);
     --btnBg: var(--white);
     --btnFontColor: var(--black);
 }
+
 .btn {
     position: absolute;
     top: 20px;
@@ -46,91 +42,26 @@ li {
     color: var(--btnFontColor);
     background-color: var(--btnBg);
 }
-
-.story-selector{
+.btn_Story {
     position: absolute;
     top: 20px;
-    left: 620px;
+    left: 650px;
     height: 50px;
-    width: 150px;
-    border-radius: 10%;
+    width: fit-content;
+    border-radius: 20%;
     border: none;
     color: var(--btnFontColor);
     background-color: var(--btnBg);
 }
 
-.story-box {
-    background: #2e2e2e; 
-    color: #ffffff; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
-    object-position: center;
-    width: 80%;
-    aspect-ratio: 16/9;
-    position: sticky;
-    top: 5%;
-    overflow: hidden;
-    --char1-position: 10%, 100%;
-    visibility: hidden;
+.loadingScreen {
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+  opacity: 0;
+  left: 0%;
+  top: 0%;
+  position: absolute;
+  visibility: hidden;
+  object-fit: contain;
 }
-
-.story-box > .bg {
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    position: absolute;
-}
-.story-box > .img {
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    position: absolute;
-
-}
-
-.story-box > .character {
-    margin-top: 10%;
-    background-color: transparent;
-    width: auto;
-    height: 130%;
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-}
-
-.story-box > .overlay {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(212, 9, 9, 0) 10%, rgba(0, 0, 0, 0) 80%, rgb(0, 0, 0) 90%, rgb(0, 0, 0) 100%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 0px;
-    left: 0px;
-    position: absolute;
-}
-
-.story-box > .speaker {
-    text-align: right;
-    color: #aaaaaa;
-    text-align: right;
-    width: 30%;
-    bottom: 0px;
-    left: 0%;
-    bottom: 5%;
-    font-size: 1.75vw;
-    font-weight: normal;
-    position: absolute;
-}
-
-.story-box > .dialouge {
-    text-align: left;
-    color: #ffffff;
-    width: 50%;
-    top: 83.75%;
-    left: 32.5%;
-    font-size: 1.5vw;
-    position: absolute;
-}
-

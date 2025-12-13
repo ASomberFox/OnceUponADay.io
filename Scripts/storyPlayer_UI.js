@@ -1,10 +1,17 @@
 //Show transcript function:-----------------------------------------------------
 function showTranscript() {
-    $("Transcript").style.display = "block";
+    $("Transcript").style.visibility = "visible";
+}
+function hideTranscript() {
+    $("Transcript").style.visibility = "hidden";
 }
 
-function hideTranscript() {
-    $("Transcript").style.display = "none";
+//Show Skip Menu Function:------------------------------------------------------
+function showSkip() {
+    $("Skip-Menu").style.visibility = "visible";
+}
+function hideSkip() {
+    $("Skip-Menu").style.visibility = "hidden";
 }
 
 //Hide UI Function:-------------------------------------------------------------

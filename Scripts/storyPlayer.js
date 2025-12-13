@@ -5,117 +5,66 @@
 /**
  * Load Story Data
  */
-// Player and asset targets
-var player = $('Story-box');
-var bg = $('Background');
-
 var frameIndex = 0;     // The current story frame.
-var storyFrames = [];   // Story data for each frame.
 var preloadList = [];   // List of all assets to preload.
+var summaryData = [];
+var storyFrames = [];   // Story data for each frame.
 var storyAssets = new Map();   // List of all story assets.
 var characterSet = new Set();   // List of all unique characters in this story.
 var isTyping = false;
 var blocked = false;
 
-// Load Story Data
-var loadQueue = [];
-loadQueue.push(loadTxt('Story/testStory1.tsv'));
-loadQueue.push(loadTxt('Story/testStory1_Preload.tsv'));
-/**
-// Preloads and preps all story data and assets
-Promise.all(loadQueue)  // Ensure all data is loaded
-    .then(([frames, assets]) => {
-        storyFrames = frames;
-        console.log("Story frames: " + frames);
+function loadStory(script_path) {
+    fetch(script_path)  // Fetch the script path.
+            .then(response => response.json())  // Extract the data from the JSON file.
+            .then(data => {
 
-        preloadList = assets;
-        console.log("Story assets: " + assets);
+                console.log("Story frames: " + data.storyFrames);
 
-        preloadList.forEach((obj) => {
-            let ele = loadData(obj);
-            if (ele.className == 'character') {
-                characterSet.add(ele.id);
-            }
-            storyAssets.set(ele.alt, ele);
-        });
+                preloadList = data.preload;         // Store the preload file data.
+                console.log("Story assets: " + data.preload);
 
-        console.log("All loaded Character Assets: " + Array.from(characterSet).join(' '));
+                preloadList.forEach((obj) => {      // Load the data of each preload file.
+                    let ele = loadData(obj);
+                    if (ele.className == 'character') {     // Add any assets marked as characters for a set to make target elements.
+                        characterSet.add(ele.id);
+                    }
+                    storyAssets.set(ele.alt, ele);
+                });
 
-        characterSet.forEach((value) => {
-            let tmp = loadData("character\t"+value+"\tneutral\t/imgs/char/missing.png\t visibility: hidden;");
-            console.log("Character: " + value + " Added");
-            //bg.after(tmp);
-            $('Character_Container').appendChild(tmp);
-        });
+                console.log("All loaded Character Assets: " + Array.from(characterSet).join(' '));
 
-        console.log("Loading Complete!");
+                characterSet.forEach((value) => {       // Make a unique element for each unique character to act as targets.
+                    let tmp = loadData( {"type" : "character",
+                                        "name" : value,
+                                        "state": "neutral",
+                                        "path" : "/imgs/char/missing.png",
+                                        "transformation" : "translate(-50%, -50%)"});
+                    console.log("Character: " + value + " Added");
 
-        // Load first frame
-        nextFrame();
-    });
+                    $('Container').appendChild(tmp);        // Assign each unique character target to character container.
+                });
+                
 
-function nextFrame() {
-    if (!isTyping) {
-        console.log("Setting up Frame: " + frameIndex);
-        endVoice();
-        var param = storyFrames[frameIndex].split('\t');
-        console.log(param);
+                summaryData = data.summary;
+                $('Chapter').textContent = summaryData.Chapter;
+                $('Episode').textContent = summaryData.Episode;
+                $('Series').textContent = summaryData.Series;
+                $('Summary-Text').textContent = summaryData.Summary;
 
-        storyFunctions.get(param[0])(...param.slice(1));
+                storyFrames = data.storyFrames;     // Store the story frames.
 
-        console.log("Displaying Frame: " + frameIndex);
-        frameIndex++;
-
-        // If complete bring up loading screen
-        // This is temp:
-        if (frameIndex >= storyFrames.length) {
-            frameIndex = 0;
-            ResetBox();
-        }
-        console.log("Next Index: " + frameIndex);
-    }
-    else {
-        isTyping = false;
-    }
-    return true;
+                console.log("Loading Complete!");
+                // Load first frame
+                //nextFrame();
+            })
+            .then(() => {
+                let anim = $('LS').animate([{opacity: 1}, {opacity: 0}],{duration: 2500, fill: 'forwards'});
+                anim.finished.then(() => {
+                    $('LS').style.visibility = 'hidden';
+                })
+            });
 }
-*/
-
-fetch('Story/testStory2.json')
-    .then(response => response.json())
-    .then(data => {
-        storyFrames = data.storyFrames;
-        console.log("Story frames: " + data.storyFrames);
-
-        preloadList = data.preload;
-        console.log("Story assets: " + data.preload);
-
-        preloadList.forEach((obj) => {
-            let ele = loadData(obj);
-            if (ele.className == 'character') {
-                characterSet.add(ele.id);
-            }
-            storyAssets.set(ele.alt, ele);
-        });
-
-        console.log("All loaded Character Assets: " + Array.from(characterSet).join(' '));
-
-        characterSet.forEach((value) => {
-            let tmp = loadData( {"type" : "character",
-                                "name" : value,
-                                "state": "neutral",
-                                "path" : "/imgs/char/Kezia/neutral.png",
-                                "transformation" : "translate(-50%, -50%)"});
-            console.log("Character: " + value + " Added");
-            //bg.after(tmp);
-            $('Character_Container').appendChild(tmp);
-        });
-
-        console.log("Loading Complete!");
-
-        // Load first frame
-        nextFrame();
-    })
 
 function nextFrame() {
     if (!blocked) {
@@ -139,12 +88,10 @@ function nextFrame() {
                 frameIndex = 0;
                 ResetBox();
             }
-            console.log("Next Index: " + frameIndex);
         }
         else {
             isTyping = false;
         }
-        return true;
     }
 }
 
@@ -155,29 +102,5 @@ window.addEventListener('keydown', function(event) {
     }
 })
 
-
-
-// document.getElementById('Dialouge').addEventListener('click', function() {
-//     fetch('Text.txt')
-//         .then(response => response.text())
-//         .then(text => {
-//             const dialogueLines = text.split('\n').filter(line => line.trim() !== '');
-//             let nextText = '';
-//             if (dialogueLines.length > 0 && counter < dialogueLines.length) {
-//                 nextText = dialogueLines[counter];
-//             } else {
-//                 nextText = "End of dialogues.";
-//             }
-
-//             // If currently typing, finish instantly
-//             if (isTyping) {
-//                 clearInterval(typingInterval);
-//                 typingInterval = null;
-//                 isTyping = false;
-//                 this.querySelector('Dialouge').textContent = currentText;
-//             } else {
-//                 showTextSlowly(this.querySelector('Dialouge'), nextText);
-//                 if (counter < dialogueLines.length) counter++;
-//             }
-//         });
-// });
+// Run Scritps
+loadStory('Story/testStory2.json');

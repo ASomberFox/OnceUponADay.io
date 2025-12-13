@@ -5,17 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="Story Player" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="player_styles.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/HeartDash_Favicon.png">
+    <link rel="stylesheet" href="storyPlayer_styles.css">
+    <link rel="icon" type="image/x-icon" href="/imgs/Favicons/HeartDash_Favicon.png">
 </head>
 
 <body class="Story-Player">
-
     <!-- Story Player -->
     <div id="Story-box">
         <img id="Background"   class="background" src="/imgs/bg/empty.jpg">
         
-        <div id="Character_Container"
+        <div id="Container"
             style="position:absolute;
                     width: 100%;
                     height: 100%;
@@ -24,7 +23,7 @@
                     transform: translate(-50%, -50%);">
         </div>
 
-        <div id="Overlay"   class="overlay" style=""></div>
+        <div id="Overlay"   class="overlay"></div>
         <div id="Text"
             style="text-align: right;
                     color: #aaaaaa;
@@ -32,7 +31,7 @@
                     margin: 0;
                     bottom: 15%;
                     right: 70%;
-                    font-size: calc(var(--true-height) *.05);
+                    font-size: calc(var(--true-height) *.045);
                     font-weight: normal;
                     position: absolute;">
             <div id="Speaker"     class="speaker"></div>
@@ -51,7 +50,43 @@
         <!-- Story Transcript -->
         <div id="Transcript" onclick="hideTranscript()">
             <div id="Story_Text">
+                <div id="Current_Text" class="logPointer">▶</div>
 
+            </div>
+        </div>
+        <!-- Story Skip Meanu -->
+        <div id="Skip-Menu" onclick="hideSkip()">
+            <div id="Summary">
+                <div id="Summary-Header">
+                    <span id="Chapter"
+                        style="color: #aaaaaa;
+                            font-size: calc(var(--true-height) *.035);"></span>
+                      
+                    <span id="Episode"
+                        style="font-size: calc(var(--true-height) *.04);"></span>
+                      
+                    <span id="Series"
+                        style="color: #aaaaaa;
+                            font-size: calc(var(--true-height) *.03);;"></span>
+                </div>
+                <div id="Summary-Text"></div>
+                <div class="Line"
+                    style="left: 0%;">   </div>
+                <div id="Summary-Controls">
+                    Are you sure you want to skip the story?
+                </div>
+                <input type="image"
+                    id="Cancel"
+                    class="Skip_Icons"
+                    src="imgs/UI/cross.png"
+                    style="left: 39.5%">
+                <input type="image"
+                    id="End"
+                    class="Skip_Icons"
+                    src="imgs/UI/check-mark.png"
+                    style="right: 39.5%;">
+                <div class="Line"
+                    style="right: 0%;">   </div>
             </div>
         </div>
         <!-- Story Player UI Elements -->
@@ -60,15 +95,15 @@
                     position: sticky;
                     width: 100%;
                     height: 1%;
-                    top: 1%;
+                    top: 5%;
                     left: 0%;">
         <input  class="UI_element" 
             type="image" 
             id="Show_Transcript" 
             src="imgs/UI/transcription.png" 
             alt="Dialouge transcription"
-            style=" width: 3%;
-                    left: 1%;
+            style=" width: 2.5%;
+                    left: 3%;
                     top: 2%;"
             onclick="showTranscript()">
 
@@ -77,8 +112,8 @@
             id="UI_vis" 
             src="imgs/UI/hide.png" 
             alt="Hide UI"
-            style=" width: 3%;
-                    left: 5%;"
+            style=" width: 2.5%;
+                    left: 8%;"
             onclick="UIToggle()">
 
         <button class="UI_element"
@@ -98,9 +133,9 @@
                     padding: 0;
                     width: 5%;
                     text-align: center;
-                    font-size: calc(var(--true-height) * .025);
-                    right: 20.5%;
-                    top: 50%;">
+                    font-size: calc(var(--true-height) * .02);
+                    right: 19.25%;
+                    top: 100%;">
             1 X
         </p>    
 
@@ -112,8 +147,8 @@
                     padding: 0;
                     color: rgb(131, 131, 131);
                     font-size: calc(var(--true-height) * .03);
-                    right: 10%;
-                    top: 80%;">
+                    right: 10.5%;
+                    top: 50%;">
             OFF
         </p>
 
@@ -123,10 +158,10 @@
                     margin: 0;
                     padding: 0;
                     width: 12%;
-                    font-size: calc(var(--true-height) * .03);
+                    font-size: calc(var(--true-height) * .025);
                     text-align: left;
                     right: 2.75%;
-                    top: 0%;">
+                    top: 85%;">
             ▶
         </p>
         
@@ -135,15 +170,17 @@
             style=" font-weight: normal;
                     font-size: calc(var(--true-height) * .035);
                     width: max-content;
-                    right: 1%;"> 
+                    right: 3%;"
+            onclick="showSkip()">
             SKIP ▶
         </button>
         </div>
 
     </div>
+    <img id="LS" class="loadingScreen" src="imgs\UI\maxresdefault.jpg">
 
-    <script src="Scripts/Animations.js"></script>
-    <script src="Scripts/Utils.js"></script>
+    <script src="Scripts/storyPlayer_Animations.js"></script>
+    <script src="Scripts/storyPlayer_Utils.js"></script>
     <script src="Scripts/storyPlayer_UI.js"></script>
     <script src="Scripts/storyPlayer.js"></script>
     

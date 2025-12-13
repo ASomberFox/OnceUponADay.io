@@ -1,13 +1,13 @@
 
 function fadeIn(element, duration, blocking) {
-    console.log('Animated Started');
+    console.log('Animation Started');
     blocked = blocking;
     let anim = $(element).animate([{opacity: 0}, {opacity: 1}],{duration: duration, fill: 'forwards'});
     return anim.finished.then(()=>{blocked = false});
 }
 
 function fadeOut(element, duration, blocking) {
-    console.log('Animated Started');
+    console.log('Animation Started');
     blocked = blocking;
     let anim = $(element).animate([{opacity: 1}, {opacity: 0}],{duration: duration, fill: 'forwards'});
     return anim.finished.then(()=>{blocked = false});

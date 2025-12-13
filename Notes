@@ -1,13 +1,13 @@
 Todo List:
 x Finalize the asset loading process.
 x Implement nextFrame() for one function.
-- Implement all relevent functions.
-    - Implement animations.
+x Implement all relevent functions.
+    x Implement animations.
 x Implement Autoplay feature.
     x Have Autoplay not  
 - Implement load/unloading screen.
-- Implement "Are you sure you want to skip" window
-    - Also include a story summary for skip window.
-    - Have skip window exit back to main screen.
+x Implement "Are you sure you want to skip" window
+    x Also include a story summary for skip window.
+    x Have skip window exit back to main screen.
 - Work on HeartDash main screen.
-- Implement the text appending to Transcript
+x Implement the text appending to Transcript
