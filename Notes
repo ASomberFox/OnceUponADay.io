@@ -1,13 +1,115 @@
-Todo List:
+Code = Todo List:
 x Finalize the asset loading process.
 x Implement nextFrame() for one function.
 x Implement all relevent functions.
     x Implement animations.
 x Implement Autoplay feature.
     x Have Autoplay not  
-- Implement load/unloading screen.
+x Implement load/unloading screen.
 x Implement "Are you sure you want to skip" window
     x Also include a story summary for skip window.
     x Have skip window exit back to main screen.
+x Implement the text appending to Transcript.
+- Implement Sound effects.
+- Implement Background Music
 - Work on HeartDash main screen.
-x Implement the text appending to Transcript
+    - Either Full Event Map
+    - Only new event style main menu
+        - If so have shop link to Arknights Merch Store or Nian bean plushy
+    - Or archieves style vignette only
+
+
+
+Story = Todo List:
+- Create a single Vignette
+    - Center it around either Kezia, Andra, or ErYang
+        - Kezia:
+            - Her Vignette is either meeting Andra or Clair and having an existential crisis due to her history with them.
+            - Andra is an infected knight.
+            - Kezia has to confront her guilt and her betrayel that lead to the death of one of the Bro Knights,
+                which inturn revealed that they were infected as they disintigrated into originium dust.
+            - The survivors of the former Stormbreaker KC and its attached infected community never forgot
+            - Andra might be from that community and holds a bitter opinion of Kezia or a lack of one.
+            - At some point Clair will approach Andra with a sponsorship offer,
+                who after the closure of her buissness due tp Kezia's actions, is now a salarywoman as corperate liaison
+            - Clair will confront Kezia, as they haven't spoken for years
+            - Kezia will have to confront her past via Clairs reactions
+    - Each Vignette should be a mostly contained moment with minimal cronological order
+        - First Moment: Kezia
+            - Show off Kezia and her performance as an idol knight
+                - Show how she has to swallow down her pride or wishes to keep up the act
+            - Show that she is unsatisfied with her position, but still not a good person
+
+        - Second Moment: Andra
+            - Young independent infected knight out to make a name for herself.
+            - Andra is approached by Clair with an sponsorship offer.
+                - Certain Corporations have taken to sponsoring some infected knights as they believe:
+                    - They are the hot new topic with The Blood Knights victory
+                    - They are an easy target to get advertisement for their oripathy medication to the desperate infected
+            - Andra starts listening to her, revealing that Clair is going out on a limb to push this because
+                she genuinely wants to help the infected.
+                - Clair notes that the Crimson Chalice already has many sponsors and don't want to take her offer,
+                    on top of their less infected forcused structure under the Pan Hard order.
+                - She also notes that other smaller infected KCs like Pinus Sylvestris or independent infected knights like "Fartooth" Justyna,
+                    rejected her offer, seeing her as another KGCC puppet.
+                - Andra is one of few independent infected knights left that she can turn to to offer support
+            - After some discussion, Andra reluctantly agrees to Clair's offer and begin working together.
+
+        - Third Moment: Bad Paperwork
+            - Clair is confronted by her boss over her "incorrect" sponsorship offer to Andra and is moving to cancel the sponsorship.
+            - Clair defends her position by arguing that this might be an oppurtunity, as Andra's infected status cuz be useful in pushing the company product.
+            - Clair eats at herself internally, as the corperate jargen and objectification of Andra disgusts her, but she is determined to help Andra.
+                (Note that showing Clair's characteristic of being a stats nerd, and her new role as a corperate/ sponsorship scout, is both fitting and puts more weight behind her choices.)
+            - Headway is made with Clair's boss, as they conceed that this sponsorship offer may not be a bad deal.
+            - With this victory, Clair attempts to push further on a moral level with a focus on the company's potential image as...
+            - But she is cut off by her boss who stobbornly states that this moral position is too risky for the company and he will have to reject it.
+            - Before the boss can revoke the contract, he is interrupted by his secretary with an ugrent meeting. Its from the KGCC
+            - The boss immidately drops what he's doing and ushers Clair out of their office.
+            - Outside, Clair contenplates on her approach to win over her boss
+            - After a while her boss emerges, clearly stressed, and orders his subbordenate, Malkiewicz, to executre on a proposal he hands him.
+            - Immidately after the interaction with Malkiewicz, Clair attempts to contront her boss on their previous discussion.
+            - Her boss, now entirely preoccupied by the other task at hand, begrudingly gives her his approval and brushes her aside.
+            - Clair thanks her boss profusely and heads to make preperations for her support of Andra.
+
+        - Forth Moment: Game Match
+            - Andra, with Clair's backing, going into a match sometime in the future.
+            - It is revealed that Andra's opponent is Kezia.
+            - Clair is disatisfied with this, but is further angered as her superiors order her to ask Andra to throw the match at the last moment.
+            - Clair informs Andra of the order, but disobey's orders and asks Andra to kick Kezia's ass.
+            - Andra acknowledges this request.
+            - Kezia expecting a fixed match, is confronted by an onslaught from Andra.
+            - Kezia ultimatly pervails, in spite of Andra's genuine efforts and much to Clair's dismay.
+            - Kezia, however, had to break decorum to avoid defeat and is reprimanded by her manager.
+                - The manager still under the assumptions that the match was fixed and Kezia's recent underperformance from her "misgivings"
+                    accusses Keiza of slackign and threatens her career.
+                - Kezia is angered by this and decides to confront Andra personally about breaking her end of the deal later that night.
+
+        - Fifth Moment: Confrontation
+            - Kezia finds Andra at a small bar later that night and confronts her.
+            - As the shouting match begins, Clair returns from the bathroom and sees Kezia
+            - Kezia realizing Clair is Andra's manager/ main patron is stunned.
+            - Cold greetings are exchanged and angerd jabs are thrown between the two women
+                - Clair calls her a traitor
+                - Kezia tries to retort by calling out Clair's current job
+                - But clair deflects, noting that she is in her state because of her
+                - Before Kezia can reply, Clair tears into her about her deeds, her cowardice, her greed
+                - Clair reveals that it took her 9 years to rebuild her life after the Bankruptcy Kezia caused, and that her
+                    contract with Andra was a result of her trying to do something inside to help the infected community she had
+                    bonded with previously.
+            - Kezia does not take this well, her anger and guilt stur her insides
+            - Kezia leaves, leaving behind an empty thread and bitterness.
+            - As she is on her way home, a fan notices her and attempts to interact with her.
+            - Kezia, still in a bad headspace, snaps at her fan resulting in the fan becoming frightened and fearful
+                                        ==> The fan will post about this on the Kezia fan forum, however, due to his lack of evidenance and disparaging comment of Kezia, the fanbase will bury him
+                                            under a deluge of hate and subtle manipulates by Kezia's sponsors to control bury this event and protect Kezia's image.
+                                                - Kezia will see this and attempt to fix this, but is stopped by her manager as to not damage her image.
+                                                - Kezia realizes the influence and impact she has on others, as the fan posts a final comment echoing similar words spoken by Clair, "I thought we were good people."
+            - Kezia realizes her actions, stops, apologizes, and runs home.
+        
+        - Sixth Moment: Number One Fan
+            - (Refer to previous note about fan interaction in previous moment)
+            - (Kezia'a manager's perspective on the situation, and his attempts to manipulate events)
+
+        - Seventh Moment: Mob's Rule
+            - (Target story about the KGCC's attempts to fix Andra's next match)
+            - (Clair once again trieds to fight against the match fixing)

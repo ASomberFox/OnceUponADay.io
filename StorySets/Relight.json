@@ -1,0 +1,20 @@
+{
+"banner" : [
+    {"title" : "Relight", "path" : "./imgs/UI/storyPic_act9mini.png"}
+],
+
+"bg_color" : "#9c1503",
+
+"stories" : [
+    {"title" : "Heart Dash", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "./Story/testStory2.json"},
+    {"title" : "Straight Shot", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Andra/neutral.png", "path" : "./Story/testStory1.json"}
+],
+
+"locked" : [
+    {"title" : "Bad Paperwork", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "./Story/testStory2.json"},
+    {"title" : "Game Match", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "./Story/testStory2.json"},
+    {"title" : "Confrontation", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "./Story/testStory2.json"},
+    {"title" : "Number One Fan", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "./Story/testStory2.json"},
+    {"title" : "Mob's Rule", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "./Story/testStory2.json"}
+]
+}

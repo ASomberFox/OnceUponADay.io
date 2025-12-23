@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="Story Player" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="storyPlayer_styles.css">
-    <link rel="icon" type="image/x-icon" href="/imgs/Favicons/HeartDash_Favicon.png">
+    <link rel="stylesheet" href="./StoryPlayer/storyPlayer_styles.css">
+    <link rel="icon" type="image/x-icon" href="./imgs/Favicons/HeartDash_Favicon.png">
 </head>
 
 <body class="Story-Player">
     <!-- Story Player -->
     <div id="Story-box">
-        <img id="Background"   class="background" src="/imgs/bg/empty.jpg">
+        <img id="Background"   class="background" src="./imgs/bg/empty.jpg">
         
         <div id="Container"
             style="position:absolute;
@@ -78,13 +78,14 @@
                 <input type="image"
                     id="Cancel"
                     class="Skip_Icons"
-                    src="imgs/UI/cross.png"
+                    src="./imgs/UI/cross.png"
                     style="left: 39.5%">
                 <input type="image"
                     id="End"
                     class="Skip_Icons"
-                    src="imgs/UI/check-mark.png"
-                    style="right: 39.5%;">
+                    src="./imgs/UI/check-mark.png"
+                    style="right: 39.5%;"
+                    onclick="endStory()">
                 <div class="Line"
                     style="right: 0%;">   </div>
             </div>
@@ -100,7 +101,7 @@
         <input  class="UI_element" 
             type="image" 
             id="Show_Transcript" 
-            src="imgs/UI/transcription.png" 
+            src="./imgs/UI/transcription.png" 
             alt="Dialouge transcription"
             style=" width: 2.5%;
                     left: 3%;
@@ -110,7 +111,7 @@
         <input  class="UI_element" 
             type="image" 
             id="UI_vis" 
-            src="imgs/UI/hide.png" 
+            src="./imgs/UI/hide.png" 
             alt="Hide UI"
             style=" width: 2.5%;
                     left: 8%;"
@@ -177,12 +178,12 @@
         </div>
 
     </div>
-    <img id="LS" class="loadingScreen" src="imgs/UI/maxresdefault.jpg">
+    <img id="LS" class="loadingScreen" src="./imgs/UI/maxresdefault.jpg">
 
-    <script src="Scripts/storyPlayer_Animations.js"></script>
-    <script src="Scripts/storyPlayer_Utils.js"></script>
-    <script src="Scripts/storyPlayer_UI.js"></script>
-    <script src="Scripts/storyPlayer.js"></script>
+    <script src="./StoryPlayer/storyPlayer_Animations.js"></script>
+    <script src="./StoryPlayer/storyPlayer_Utils.js"></script>
+    <script src="./StoryPlayer/storyPlayer_UI.js"></script>
+    <script src="./StoryPlayer/storyPlayer.js"></script>
     
 </body>
 </html>

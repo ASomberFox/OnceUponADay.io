@@ -1,19 +1,8 @@
 var $ = function( id ) { return document.getElementById( id ); };
 
-const storyButtons = $('link');
+const storyButtons = document.getElementsByClassName('btn_Stories');
 
-storyButtons.forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const url = e.target.href;
-        console.log(url);
-        $('LS').style.visibility = 'visible';
-        let anim = $('LS').animate([{opacity: 0}, {opacity: 1}],{duration: 2000, fill: 'forwards'});
-        anim.finished.then(() => {
-            window.location.href = url;
-        })
-    });
-});
+
 
 const switcher = document.querySelector('.btn');
 
@@ -29,4 +18,34 @@ switcher.addEventListener('click', function() {
     }
 
     console.log('current class name: ' + className);
+});
+
+function loadingScreen(state) {
+    if (state == 'loadingIn') {
+        $('LS').style.visibility = 'visible';
+        let anim = $('LS').animate([{opacity: 1}, {opacity: 0}],{duration: 500, fill: 'forwards'});
+        return anim.finished.then(() => {
+            $('LS').style.visibility = 'hidden';
+        });
+    }
+
+    else if (state == 'loadingOut') {
+        $('LS').style.visibility = 'visible';
+        let anim = $('LS').animate([{opacity: 0}, {opacity: 1}],{duration: 500, fill: 'forwards'});
+        return anim.finished;
+    }
+}
+
+loadingScreen('loadingIn').then(() => {;
+    for (const link of storyButtons) {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            localStorage.setItem('backPage', 'Relight.json');
+            const url = './vignetteMenu.html';
+            console.log(url);
+            loadingScreen('loadingOut').then(() => {
+                window.location.href = url;
+            })
+        });
+    };
 });

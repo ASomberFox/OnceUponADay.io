@@ -51,4 +51,4 @@ var storyAnimations = new Map();
 storyAnimations.set('fadeIn', fadeIn);
 storyAnimations.set('fadeOut', fadeOut);
 storyAnimations.set('none', none);
-storyAnimations.set('', Promise.resolve);
+storyAnimations.set('', none);

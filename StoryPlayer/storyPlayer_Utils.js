@@ -36,10 +36,22 @@ function Show(target, state, animation="", filter="", transformation="", chainin
     return retu.then(()=>{$('Text').style.opacity = 1;})
 }
 
-function Unshow(target) {
-    $(target).style.visibility = 'hidden';
-    return Promise.resolve();
+function Unshow(target, state, animation="", filter="", transformation="", chaining=true) {
+    $('Container').style.opacity = 1;
+    $(target).style.transform += transformation;
+    $('Text').style.opacity = 0;
+    let retu = null;
+    if (chaining) {
+        retu = storyAnimations.get(animation)(target, 1000, true);
+        retu.then(()=>{$(target).style.visibility = 'hidden';});
+    }
+    else {
+        retu.then(()=>{$(target).style.visibility = 'hidden';});
+    }
+    return retu.then(()=>{$('Text').style.opacity = 1;})
 }
+
+
 
 function UnshowAllBut(targets) {
 
@@ -47,7 +59,9 @@ function UnshowAllBut(targets) {
 
 function Speaker(target) {
     orderCharacters(0.5);
-    $(target).style.filter = 'brightness(1)';
+    if (target != "") {
+        $(target).style.filter = 'brightness(1)';
+    }
     return Promise.resolve();
 }
 
@@ -121,7 +135,6 @@ function loadData(data) {
     return retu;
 }
 
-var textHeight = parseInt(getComputedStyle($('Current_Text')).top);
 function logText(speaker, text, filter="") {
     
     let line = document.createElement('div');
@@ -135,16 +148,28 @@ function logText(speaker, text, filter="") {
     textBox.className = "logDialouge";
     textBox.textContent = text;
 
-    line.appendChild(speakerBox);
-    line.appendChild(textBox);
+    let pointer = $('Current_Text');
 
-    console.log(textHeight);
+    line.appendChild(speakerBox);
+    line.appendChild(pointer);
+    line.appendChild(textBox);
 
     $('Story_Text').appendChild(line);
     $('Current_Text').style.opacity = 1;
-    $('Current_Text').style.top = textHeight + "px";
-    textHeight = parseInt(line.clientHeight) + textHeight;
 
     $('Transcript').scrollTo(0, $('Transcript').scrollHeight);
     return;
+}
+
+function endStory() {
+    // Get Story screen position
+
+    // Get Story menu screen
+    const url = "vignetteMenu.html"; // Get URL of main menu
+    console.log(url);
+    $('LS').style.visibility = 'visible';
+    let anim = $('LS').animate([{opacity: 0}, {opacity: 1}],{duration: 500, fill: 'forwards'});
+    anim.finished.then(() => {
+        window.location.href = url;
+    })
 }
