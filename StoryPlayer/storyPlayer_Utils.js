@@ -147,11 +147,12 @@ function CameraShake(duration=1000, xstrength=5, ystrength=5, vibrato=10, random
 }
 
 function Delay(time) {
+    blocked = true;
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve();
         }, time);
-    });
+    }).then(()=>{blocked = false});
 }
 
 function Stall() {
