@@ -15,6 +15,7 @@ function loadMenu(script_path) {
         .then(response => response.json())
         .then(data => {
             console.log("Event Menu Data: " + data);
+            document.title = data.title;
             background.src = data.background.path;
             
             currency.src = data.currency.path;

@@ -10,6 +10,7 @@ function loadMenu(script_path) {
         .then(response => response.json())
         .then(data => {
             console.log("Vignettes frames: " + data.stories);
+            document.title = data.title;  // Set the document title.
 
             $('bgOverlay').style.backgroundColor = data.bg_color;   // Set the background color of the menu.
             $('banner').src = data.banner[0].path;  // Set the banner image of the menu.
@@ -43,7 +44,7 @@ function loadMenu(script_path) {
 function makeVignette(vignetteData) {
     let vignette = document.createElement('div');
     vignette.className = 'vignette';
-    vignette.id = vignetteData.id;
+    vignette.id = vignetteData.title;
     vignette.href = vignetteData.path;
 
     let upper = document.createElement('div');

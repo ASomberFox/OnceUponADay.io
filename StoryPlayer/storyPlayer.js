@@ -21,6 +21,7 @@ function loadStory(script_path) {
         .then(data => {
 
             console.log("Story frames: " + data.storyFrames);
+            document.title = data.summary.Episode;  // Set the document title.
 
             preloadList = data.preload;         // Store the preload file data.
             console.log("Story assets: " + data.preload);
