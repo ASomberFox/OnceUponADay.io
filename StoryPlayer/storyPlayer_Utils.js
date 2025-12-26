@@ -19,52 +19,6 @@ function Scene(bg_img, state, animation, filter="", sound="", bg_Music="", chain
     return retu;
 }
 
-function Show(target, state, animation="", filter="", transformation="", chaining=true) {
-    $('Container').style.opacity = 1;
-    $(target).style.visibility = 'visible';
-    $(target).src = storyAssets.get(target + "_" + state).src;
-    $(target).style.filter += filter;
-    $(target).style.transform += transformation;
-    $('Text').style.opacity = 0;
-    let retu = null;
-    if (chaining) {
-        retu = storyAnimations.get(animation)(target, 1000, true);
-    }
-    else {
-        retu = Promise.resolve();
-    }
-    return retu.then(()=>{$('Text').style.opacity = 1;});
-}
-
-function Unshow(target, state, animation="", filter="", transformation="", chaining=true) {
-    $('Container').style.opacity = 1;
-    $(target).style.transform += transformation;
-    $('Text').style.opacity = 0;
-    let retu = null;
-    if (chaining) {
-        retu = storyAnimations.get(animation)(target, 1000, true);
-        retu.then(()=>{$(target).style.visibility = 'hidden';});
-    }
-    else {
-        retu.then(()=>{$(target).style.visibility = 'hidden';});
-    }
-    return retu.then(()=>{$('Text').style.opacity = 1;});
-}
-
-
-
-function UnshowAllBut(targets) {
-
-}
-
-function Speaker(target) {
-    orderCharacters(0.5);
-    if (target != "") {
-        $(target).style.filter = 'brightness(1)';
-    }
-    return Promise.resolve();
-}
-
 function Voice(text, filter="") {
     console.log("Voicing: " + text);
     logText(" ", text);
@@ -207,9 +161,6 @@ function Stall() {
 var storyFunctions = new Map();
 
 storyFunctions.set('Scene', Scene);
-storyFunctions.set('Show', Show);
-storyFunctions.set('Unshow', Unshow);
-storyFunctions.set('Speaker', Speaker);
 storyFunctions.set('Voice', Voice);
 storyFunctions.set('Narration', Narration);
 storyFunctions.set('ResetBox', ResetBox);
