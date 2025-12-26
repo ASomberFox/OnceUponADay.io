@@ -11,6 +11,7 @@ var summaryData = [];
 var storyFrames = [];   // Story data for each frame.
 var storyAssets = new Map();   // List of all story assets.
 var characterSet = new Set();   // List of all unique characters in this story.
+var characterList = []; // List of all character elements in the story.
 var isTyping = false;
 var blocked = false;
 var backPage = localStorage.getItem('backPage');
@@ -26,27 +27,21 @@ function loadStory(script_path) {
             preloadList = data.preload;         // Store the preload file data.
             console.log("Story assets: " + data.preload);
 
+            let charCount = 0;
             preloadList.forEach((obj) => {      // Load the data of each preload file.
                 let ele = loadData(obj);
                 if (ele.className == 'character') {     // Add any assets marked as characters for a set to make target elements.
-                    characterSet.add(ele.id);
-                }
-                storyAssets.set(ele.alt, ele);
-            });
-
-            console.log("All loaded Character Assets: " + Array.from(characterSet).join(' '));
-
-            characterSet.forEach((value) => {       // Make a unique element for each unique character to act as targets.
-                let tmp = loadData({"type" : "character",
-                                    "name" : value,
+                    let genericChar = loadData({"type" : "character",
+                                    "name" : "character" + charCount,
                                     "state": "neutral",
                                     "path" : "./imgs/char/missing.png",
                                     "transformation" : "translate(-50%, -50%)"});
-                console.log("Character: " + value + " Added");
-
-                $('Container').appendChild(tmp);        // Assign each unique character target to character container.
-            });
-            
+                    $('Container').appendChild(genericChar);
+                    characterList.push(genericChar);
+                    charCount += 1;
+                }
+                storyAssets.set(ele.alt, ele);
+            });            
 
             summaryData = data.summary;
             $('Chapter').textContent = summaryData.Chapter;
@@ -65,7 +60,11 @@ function loadStory(script_path) {
             anim.finished.then(() => {
                 $('LS').style.visibility = 'hidden';
             })
-        });
+        })
+        .then(() => {    
+            return new Promise((resolve) => {setTimeout(() => {resolve();}, 1500);
+        });})
+        .then(() => {(nextFrame())});
 }
 
 function nextFrame() {

@@ -27,12 +27,11 @@
     "operations" : [
         {"function" : "ResetBox" , "param" : [""]},
         {"function" : "Scene" , "param" : ["Stadium1", "open", "fadeIn"]},
-        {"function" : "Delay" , "param" : [1000]},
         {"function" : "Voice" , "param" : ["In these neon lit lands.", ""]}
     ]}
     ,{
     "operations" : [
-        {"function" : "Voice" , "param" : ["What hides underneath the neon lights?"]}
+        {"function" : "Voice" , "param" : ["What hides under the neon lights?"]}
     ]}
     ,{
     "operations" : [
@@ -41,12 +40,11 @@
     ]}
     ,{
     "operations" : [
-        {"function" : "Narration" , "param" : []},
-        {"function" : "CameraShake" , "param" : [500, 4, 2, 30, 90]},
+        {"function" : "CameraShake" , "param" : [1500, 4, 2, 30, 90]},
         {"function" : "Blocker" , "param" : [1, 255, 255, 255, 0, 0, 0, 0, 100]},
         {"function" : "Blocker" , "param" : [0, 0, 0, 0, 255, 255, 255, 255, 1500]},
-        {"function" : "Character" , "param" : [0, 1000, true, "./imgs/char/Kezia/happy.png"]},
-        {"function" : "Narration" , "param" : ["Kezia", "*Waves at the adoring crowd."]}
+        {"function" : "Show" , "param" : ["Kezia", "happy", "fadeIn"]},
+        {"function" : "Narration" , "param" : ["Kezia", "*Waves at adoring crowds."]}
     ]}
     ,{
     "operations" : [
@@ -54,28 +52,38 @@
     ]}
     ,{
     "operations" : [
-        {"function" : "Character" , "param" : [0, 1000, true, "./imgs/char/Andra/neutral.png"]},
-        {"function" : "Narration" , "param" : ["Andra", "..."]}
+        {"function" : "Unshow" , "param" : ["Kezia"]},
+        {"function" : "Narration" , "param" : ["Andra", "..."]},
+        {"function" : "Show" , "param" : ["Andra", "neutral", "fadeIn"]}
     ]}
     ,{
     "operations" : [
-        {"function" : "Character" , "param" : [null, 0, true, "./imgs/char/Kezia/neutral.png", "./imgs/char/Andra/neutral.png"]},
+        {"function" : "Unshow" , "param" : ["Kezia"]},
+        {"function" : "Unshow" , "param" : ["Andra"]},
+        {"function" : "Show" , "param" : ["Kezia", "neutral", "", "", "translateX(-25%)", false]},
+        {"function" : "Show" , "param" : ["Andra", "neutral", "", "", "translateX(25%)", false]},
         {"function" : "Narration" , "param" : ["", "... ... ...  "]}
 
     ]}
     ,{
     "operations" : [
-        {"function" : "Character" , "param" : [0, 0, true, "./imgs/char/Kezia/angry.png", "./imgs/char/Andra/neutral.png"]},
-        {"function" : "Narration" , "param" : ["Kezia", "I am NOT doing this again."]}
+        {"function" : "Speaker" , "param" : ["Kezia"]},
+        {"function" : "Narration" , "param" : ["Kezia", "I am NOT doing this again."]},
+        {"function" : "Show" , "param" : ["Kezia", "angry", "", "", "", false]}
     ]}
     ,{
     "operations" : [
-        {"function" : "Character" , "param" : [0, 0, true, "./imgs/char/Andra/neutral.png"]},
+        {"function" : "Speaker" , "param" : ["Andra"]},
         {"function" : "Narration" , "param" : ["Andra", "..."]}
     ]}
     ,{
     "operations" : [
         {"function" : "Stall" , "param" : []}
     ]}
+    ,{
+    "operations" : [
+        {"function" : "Stall" , "param" : []}
+    ]}
 ]
+
 }

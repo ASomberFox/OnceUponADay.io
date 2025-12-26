@@ -33,7 +33,7 @@ function Show(target, state, animation="", filter="", transformation="", chainin
     else {
         retu = Promise.resolve();
     }
-    return retu.then(()=>{$('Text').style.opacity = 1;})
+    return retu.then(()=>{$('Text').style.opacity = 1;});
 }
 
 function Unshow(target, state, animation="", filter="", transformation="", chaining=true) {
@@ -48,7 +48,7 @@ function Unshow(target, state, animation="", filter="", transformation="", chain
     else {
         retu.then(()=>{$(target).style.visibility = 'hidden';});
     }
-    return retu.then(()=>{$('Text').style.opacity = 1;})
+    return retu.then(()=>{$('Text').style.opacity = 1;});
 }
 
 
@@ -76,7 +76,7 @@ function Voice(text, filter="") {
 }
 
 
-function Narration(speaker, text, filter="") {
+function Narration(speaker='', text='', filter="") {
     console.log("Narrating: " + text);
     logText(speaker, text);
     $('Overlay').style.opacity = 1;
@@ -95,7 +95,109 @@ function ResetBox() {
     $('Speaker').innerHTML = "";
     $('Dialouge').innerHTML = "";
     $('Voice').innerHTML = "";
-    return Promise.resolve()
+    return Promise.resolve();
+}
+
+function Character(focus=null, fadetime=0, chaining=true, ...characters) {
+    $('Container').style.opacity = 1;
+    blocked = chaining;
+    let promises = [];
+    let charCount = characters.length;
+    characterList.forEach((target) => {
+        target.style.opacity = 0;
+        target.style.filter = 'brightness(0.75)';
+    });
+    for (let i = 0; i < characterList.length && i < charCount; i++) {
+        let char = characterList[i];
+        char.src = characters[i];
+        char.style.filter = 'brightness(1)';
+        char.style.visibility = 'visible';
+        let xPos = (100 / (charCount + 1)) * (i + 1);
+        char.style.left = `${xPos}%`;
+        if (fadetime > 0) {
+            let anim = char.animate([{opacity: 0}, {opacity: 1}],{duration: fadetime, fill: 'forwards'});
+            promises.push(anim.finished);
+        }
+        else {
+            char.style.opacity = 1;
+        }        
+    };
+
+    if (focus != null) {
+        for (let i = 0; i < characterList.length; i++) {
+            if (i != focus) {
+                characterList[i].style.filter = 'brightness(0.75)';
+            }
+        }
+    }
+
+    if (chaining) {
+        return Promise.all(promises).then(()=>{blocked = false});
+    }
+    else {
+        return Promise.resolve().then(()=>{blocked = false});
+    }
+}
+
+function FadeOut(focus=0, fadetime=0, chaining=true) {
+    let retu = Promise.resolve();
+    blocked = chaining;
+    if (focus >= 0) {
+        let char = characterList[focus];
+        char.style.filter = 'brightness(1)';
+        char.style.visibility = 'visible';
+        if (fadetime > 0) {
+            let anim = char.animate([{opacity: 1}, {opacity: 0}],{duration: fadetime, fill: 'forwards'});
+            retu = anim.finished;
+        }
+        else {
+            char.style.opacity = 0;
+        }
+    }
+    return retu.then(()=>{blocked = false});
+}
+
+function Blocker(a=0, r=0, g=0, b=0, afrom=255, rfrom=0, gfrom=0, bfrom=0, fadetime=0, chaining=true) {
+    let blocker = $('Blocker');
+    blocked = chaining;
+    blocker.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+    let anim = blocker.animate([{backgroundColor: `rgba(${rfrom}, ${gfrom}, ${bfrom}, ${afrom})`}, {backgroundColor: `rgba(${r}, ${g}, ${b}, ${a})`}],{duration: fadetime, fill: 'forwards'});
+    if (chaining) {
+        return anim.finished.then(()=>{blocked = false});
+    }
+    else {
+        return Promise.resolve().then(()=>{blocked = false});
+    }
+}
+
+function CameraShake(duration=1000, xstrength=5, ystrength=5, vibrato=10, randomness=90, fadeout=true, chaining=true) {
+    let items = $('Items');
+    blocked = chaining;
+    let keyframes = [];
+    let numberOfShakes = Math.floor(duration / (1000 / vibrato));
+    for (let i = 0; i < numberOfShakes; i++) {
+        let xOffset = (Math.random() * 2 - 1) * xstrength;
+        let yOffset = (Math.random() * 2 - 1) * ystrength;
+        keyframes.push({transform: `translate(${xOffset}%, ${yOffset}%)`});
+    }
+    if (fadeout) {
+        keyframes.push({transform: 'translate(0%, 0%)'});
+    }
+    let anim = items.animate(keyframes, {duration: duration, fill: 'none'});
+    if (chaining) {
+        return anim.finished.then(()=>{blocked = false});
+    }
+    else {
+        return Promise.resolve().then(()=>{blocked = false});
+    }
+}
+
+function Delay(time) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    });
 }
 
 function Stall() {
@@ -111,6 +213,11 @@ storyFunctions.set('Speaker', Speaker);
 storyFunctions.set('Voice', Voice);
 storyFunctions.set('Narration', Narration);
 storyFunctions.set('ResetBox', ResetBox);
+storyFunctions.set('Character', Character);
+storyFunctions.set('FadeOut', FadeOut);
+storyFunctions.set('Blocker', Blocker);
+storyFunctions.set('CameraShake', CameraShake);
+storyFunctions.set('Delay', Delay);
 storyFunctions.set('Stall', Stall);
 
 function orderCharacters(brightness) {

@@ -1,15 +1,19 @@
 {
     "title" : "Arknights FF: Relight",
+    "banner" : 
+        {"path" : "/imgs/Pinus_Sylvestris_event.png",
+    "x_location" : "25%",
+    "y_location" : "80%"},
     "background" : 
-        {"path" : "/imgs/test_1.png"},
+        {"path" : "/imgs/EN_Pinus_Sylvestris_banner.png"},
     "currency" : 
-        {"path" : "/imgs/error.jpg"
+        {"path" : "/imgs/Mieszko_Match_Ticket.png"
     ,"x_location" : "15%"
     ,"y_location" : "20%"},
     "currency_amount" :
         {"amount" : 500
-    ,"x_location" : "15%"
-    ,"y_location" : "12.5%"},
+    ,"x_location" : "17.5%"
+    ,"y_location" : "15%"},
     "store" : 
         {"path" : "/imgs/error-UI.jpg"
     ,"x_location" : "15%"

@@ -21,7 +21,11 @@ function loadMenu(input) {
             console.log("Event Menu Data: " + data);
             document.title = data.title;
             background.src = toPath + data.background.path;
-            
+
+            banner.src = toPath + data.banner.path;
+            banner.style.left += data.banner.x_location;
+            banner.style.bottom += data.banner.y_location;
+
             currency.src = toPath + data.currency.path;
             currency.style.left += data.currency.x_location;
             currency.style.bottom += data.currency.y_location;
