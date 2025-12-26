@@ -44,19 +44,19 @@ function makeVignette(vignetteData) {
     let vignette = document.createElement('div');
     vignette.className = 'vignette';
     vignette.id = vignetteData.id;
-    vignette.href = '.' + vignetteData.path;
+    vignette.href = vignetteData.path;
 
     let upper = document.createElement('div');
     upper.className = 'vignette-upper';
 
 
     let bg = document.createElement('img');
-    bg.src = '.' + vignetteData.background;
+    bg.src = vignetteData.background;
     bg.className = 'vignette-bg';
     upper.appendChild(bg);
 
     let item = document.createElement('img');
-    item.src = '.' + vignetteData.item;
+    item.src = vignetteData.item;
     item.className = 'vignette-item';
     upper.appendChild(item);
 
