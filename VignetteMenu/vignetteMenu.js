@@ -170,7 +170,8 @@ function makeLockedVignette(vignetteData) {
 }
 
 $('Back').addEventListener('click', function() {
-    const url = 'index.html'; // Get URL of main menu
+    const url = 'eventMenu.html'; // Get URL of main menu
+    localStorage.setItem('target', 'Relight_menu.json');
     console.log(url);
     $('LS').style.visibility = 'visible';
     let anim = $('LS').animate([{opacity: 0}, {opacity: 1}],{duration: 500, fill: 'forwards'});
@@ -179,6 +180,6 @@ $('Back').addEventListener('click', function() {
     })
 });
 
-var input = localStorage.getItem('backPage');
+var input = localStorage.getItem('target');
 
 loadMenu('./StorySets/' + input);

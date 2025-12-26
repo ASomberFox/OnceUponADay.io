@@ -40,8 +40,8 @@ loadingScreen('loadingIn').then(() => {;
     for (const link of storyButtons) {
         link.addEventListener('click', e => {
             e.preventDefault();
-            localStorage.setItem('backPage', 'Relight.json');
-            const url = './vignetteMenu.html';
+            localStorage.setItem('target', 'Relight_menu.json');
+            const url = 'eventMenu.html';
             console.log(url);
             loadingScreen('loadingOut').then(() => {
                 window.location.href = url;
