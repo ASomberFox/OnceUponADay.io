@@ -1,0 +1,21 @@
+{
+"title" : "Arknights FF: Relight",
+
+"banner" :
+    {"title" : "Relight", "path" : "/imgs/storyPic_act9mini.png"},
+
+"bg_color" : "#9c1503",
+
+"stories" : [
+    {"title" : "Heart Dash", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "/Stories/HeartDash.json"},
+    {"title" : "Straight Shot", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Andra/neutral.png", "path" : "/Stories/StraightShot.json"}
+],
+
+"locked" : [
+    {"title" : "Bad Paperwork", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
+    {"title" : "Game Match", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
+    {"title" : "Confrontation", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
+    {"title" : "Number One Fan", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
+    {"title" : "Mob's Rule", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""}
+]
+}

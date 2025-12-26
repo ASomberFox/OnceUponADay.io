@@ -23,7 +23,7 @@ body {
 }
 
 #bgOverlay {
-    background-image: url("../imgs/UI/bg.png");
+    background-image: url("./imgs/bg.png");
     background-blend-mode: multiply;
     width: 100%;
     height: 100%;

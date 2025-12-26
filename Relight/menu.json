@@ -1,9 +1,9 @@
 {
     "title" : "Arknights FF: Relight",
     "background" : 
-        {"path" : "./imgs/bg/test_1.png"},
+        {"path" : "/imgs/test_1.png"},
     "currency" : 
-        {"path" : "./imgs/error.jpg"
+        {"path" : "/imgs/error.jpg"
     ,"x_location" : "15%"
     ,"y_location" : "20%"},
     "currency_amount" :
@@ -11,27 +11,36 @@
     ,"x_location" : "15%"
     ,"y_location" : "12.5%"},
     "store" : 
-        {"path" : "./imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jpg"
     ,"x_location" : "15%"
     ,"y_location" : "10%"},
     "goals" : 
-        {"path" : "./imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jpg"
     ,"x_location" : "20%"
     ,"y_location" : "0%"},
     "stages" :
-        {"path" : "./imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jpg"
     ,"x_location" : "85%"
     ,"y_location" : "10%"},
     "extra" : 
-        {"path" : "./imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jpg"
     ,"x_location" : "80%"
     ,"y_location" : "0%"},
     "medals" : 
-        {"path" : "./imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jpg"
     ,"x_location" : "50%"
     ,"y_location" : "0%"},
     "newOps" : 
-        {"path" : "./imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jpg"
+    ,"x_location" : "80%"
+    ,"y_location" : "80%"},
+
+
+    "inspect" :
+        {"x_location" : "85%"
+    ,"y_location" : "85%"},
+    "trust" :
+        {"text" : "EARN 50% MORE TRUST DURING THE EVENT"
     ,"x_location" : "80%"
     ,"y_location" : "80%"}
 }

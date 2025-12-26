@@ -40,7 +40,7 @@ loadingScreen('loadingIn').then(() => {;
     for (const link of storyButtons) {
         link.addEventListener('click', e => {
             e.preventDefault();
-            localStorage.setItem('target', 'Relight_menu.json');
+            localStorage.setItem('target', 'Relight');
             const url = 'eventMenu.html';
             console.log(url);
             loadingScreen('loadingOut').then(() => {

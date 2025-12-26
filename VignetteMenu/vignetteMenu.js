@@ -4,8 +4,11 @@ var preloadList = [];   // List of all assets to preload.
 var vignettes = [];   // Story data for each frame.
 var locked = [];
 var storyAssets = new Map();   // List of all story assets.
+var input = localStorage.getItem('target');
+var toPath = './' + input;
 
-function loadMenu(script_path) {
+function loadMenu(input) {
+    let script_path = './' + input + '/storyList.json';
     fetch(script_path)
         .then(response => response.json())
         .then(data => {
@@ -13,7 +16,7 @@ function loadMenu(script_path) {
             document.title = data.title;  // Set the document title.
 
             $('bgOverlay').style.backgroundColor = data.bg_color;   // Set the background color of the menu.
-            $('banner').src = data.banner[0].path;  // Set the banner image of the menu.
+            $('banner').src = "./" + input + data.banner.path;  // Set the banner image of the menu.
 
             vignettes = data.stories;         // Store the preload file data.
             console.log("Story assets: " + data.stories);
@@ -45,7 +48,7 @@ function makeVignette(vignetteData) {
     let vignette = document.createElement('div');
     vignette.className = 'vignette';
     vignette.id = vignetteData.title;
-    vignette.href = vignetteData.path;
+    vignette.href = toPath + vignetteData.path;
 
     let upper = document.createElement('div');
     upper.className = 'vignette-upper';
@@ -62,7 +65,7 @@ function makeVignette(vignetteData) {
     upper.appendChild(item);
 
     let mask = document.createElement('img');
-    mask.src = "./imgs/UI/locked_mask.png";
+    mask.src = "./VignetteMenu/imgs/locked_mask.png";
     mask.className = 'vignette-mask';
     upper.appendChild(mask);
 
@@ -70,7 +73,7 @@ function makeVignette(vignetteData) {
 
     let lower = document.createElement('div');
     lower.className = 'vignette-lower';
-    lower.style.backgroundImage = `url(./imgs/UI/image_judge_dialog_bkg.png)`;
+    lower.style.backgroundImage = `url(./VignetteMenu/imgs/image_judge_dialog_bkg.png)`;
 
     let title = document.createElement('p');
     title.className = 'vignette-title';
@@ -78,7 +81,7 @@ function makeVignette(vignetteData) {
     lower.appendChild(title);
 
     let btn = document.createElement('img');
-    btn.src = "./imgs/UI/mini_play_btn.png";
+    btn.src = "./VignetteMenu/imgs/mini_play_btn.png";
     btn.className = 'vignette-btn';
     lower.appendChild(btn);
 
@@ -119,7 +122,7 @@ function makeLockedVignette(vignetteData) {
     let vignette = document.createElement('div');
     vignette.className = 'vignette';
     vignette.id = vignetteData.id;
-    vignette.href = vignetteData.path; 
+    vignette.href = toPath + vignetteData.path;
 
     let upper = document.createElement('div');
     upper.className = 'vignette-upper';
@@ -138,12 +141,12 @@ function makeLockedVignette(vignetteData) {
     upper.appendChild(item);
 
     let overlay = document.createElement('img');
-    overlay.src = "./imgs/UI/confidential_mini.png";
+    overlay.src = "./VignetteMenu/imgs/confidential_mini.png";
     overlay.className = 'vignette-confidential';
     upper.appendChild(overlay);
 
     let mask = document.createElement('img');
-    mask.src = "./imgs/UI/locked_mask.png";
+    mask.src = "./VignetteMenu/imgs/locked_mask.png";
     mask.className = 'vignette-mask';
     upper.appendChild(mask);
 
@@ -159,7 +162,7 @@ function makeLockedVignette(vignetteData) {
     lower.appendChild(title);
 
     let arrow = document.createElement('img');
-    arrow.src = "./imgs/UI/unlock_btn.png";
+    arrow.src = "./VignetteMenu/imgs/unlock_btn.png";
     arrow.className = 'vignette-locked';
     lower.appendChild(arrow);
 
@@ -172,7 +175,7 @@ function makeLockedVignette(vignetteData) {
 
 $('Back').addEventListener('click', function() {
     const url = 'eventMenu.html'; // Get URL of main menu
-    localStorage.setItem('target', 'Relight_menu.json');
+    localStorage.setItem('target', 'Relight');
     console.log(url);
     $('LS').style.visibility = 'visible';
     let anim = $('LS').animate([{opacity: 0}, {opacity: 1}],{duration: 500, fill: 'forwards'});
@@ -181,6 +184,15 @@ $('Back').addEventListener('click', function() {
     })
 });
 
-var input = localStorage.getItem('target');
+$('Home').addEventListener('click', function() {
+    const url = 'index.html'; // Get URL of main menu
+    localStorage.setItem('target', 'Relight');
+    console.log(url);
+    $('LS').style.visibility = 'visible';
+    let anim = $('LS').animate([{opacity: 0}, {opacity: 1}],{duration: 500, fill: 'forwards'});
+    anim.finished.then(() => {
+        window.location.href = url;
+    })
+});
 
-loadMenu('./StorySets/' + input);
+loadMenu(input);
