@@ -17,15 +17,16 @@ x Implement the text appending to Transcript.
     x Only new event style main menu
         x If so have shop link to Arknights Merch Store or Nian bean plushy
     x Or archieves style vignette only
+    - Deisgn UI elemetns
 - Fix Back and Home button spacing.
 - Reference AK reference txt:
     - Implement similar commands.
-        - Rework the character Container system.
+        x Rework the character Container system.
             x Make character elements generic.
             x Character positioning is = x(100/ (number of characters + 1)) * character index%
-            - Modify background setup
-            - Add Image command
-            - Add Image Tweening command
+            x Modify background setup
+            x Add Image command
+            x Add Image Tweening command
 
 
 
