@@ -1,0 +1,93 @@
+{
+"preload" : [
+    {"type" : "background", "name" : "Stadium1", "state": "open", "path" : "./imgs/bg/Background-Kazimierz_Arena.png", "transformation" : ""},
+    {"type" : "background", "name" : "Ghetto1", "state": "open", "path" : "./imgs/bg/Background-Kazimierz_Ghetto.png", "transformation" : ""},
+    {"type" : "character", "name" : "Zofia", "state": "angry", "path" : "./imgs/char/Zofia/angry.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Zofia", "state": "happy", "path" : "./imgs/char/Zofia/happy.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Zofia", "state": "joyful", "path" : "./imgs/char/Zofia/joyful.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Zofia", "state": "neutral", "path" : "./imgs/char/Zofia/neutral.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Zofia", "state": "smiling", "path" : "./imgs/char/Zofia/smiling.png", "transformation" : "translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Andra", "state": "neutral", "path" : "./imgs/char/Andra/neutral.png", "transformation" : "xScale(-1) translate(-50%, -50%)"},
+    {"type" : "character", "name" : "Andra", "state": "angry", "path" : "./imgs/char/Andra/angry.png", "transformation" : "xScale(-1) translate(-50%, -50%)"},
+    {"type" : "layer", "name" : "sloma", "state": "neutral", "path" : "./imgs/icon/Słoma_Food_Corporation.png", "transformation" : ""}
+],
+
+
+"animations" : [
+    {"type" : "animation", "name" : "name"}
+],
+
+
+"summary" : 
+    {"Chapter" : "'Old Wounds'"
+    ,"Episode" : "HD-3 Under the Neon Lights"
+    ,"Series" : "Beyond The Tower's Light"
+    ,"Summary" : "Zofia, out on a search for a suitable teammate for Maria, encounters an old friend. After spending some time catching up, the old friend offers a suggestion, and they part ways."
+    }
+,
+
+
+"storyFrames" : [
+    {
+    "operations" : [
+        {"function" : "ResetBox" , "param" : [""]},
+        {"function" : "Background" , "param" : ["./imgs/bg/Background-Kazimierz_Arena.png", 0, 0, 1.1, 1.1, 1500]},
+        {"function" : "Character" , "param" : [0, 1000, true, "./imgs/char/Zofia/neutral.png"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Character" , "param" : [-1, 0, true, "./imgs/char/Zofia/neutral.png"]},
+        {"function" : "Narration" , "param" : ["???", "Thats the clock everyone!"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Narration" , "param" : ["???", "And the results are in!...And the winner is..."]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Character" , "param" : []},
+        {"function" : "Narration" , "param" : []},
+        {"function" : "Blocker" , "param" : [1,0,0,0,0,0,0,0,500]},
+        {"function" : "ImageShow" , "param" : [0,"./imgs/bg/Background-Kazimierz_Arena.png",0,0,1,1,0]},
+        {"function" : "Blocker" , "param" : [0,0,0,0,1,0,0,0,600]},
+        {"function" : "ImageTween" , "param" : [0,0,0,0,-10,1,1,1.1,1.1,15000,false]},
+        {"function" : "Narration" , "param" : ["???", "Winning with a 20 point lead!"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Delay" , "param" : [1000]},
+        {"function" : "Blocker" , "param" : [1,0,0,0,0,0,0,0,500]},
+        {"function" : "ImageShow" , "param" : []},
+        {"function" : "Blocker" , "param" : [0,0,0,0,1,0,0,0,600]},
+        {"function" : "Character" , "param" : [0, 1000, true, "./imgs/char/Andra/neutral.png"]},
+        {"function" : "Narration" , "param" : ["???", "Straight Shot Andra!"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Narration" , "param" : ["Fanatic Crowd Member", "I LOVE YOU ANDRA!"]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "FadeOut" , "param" : [0, 1000, true]},
+        {"function" : "Narration" , "param" : ["???", "With a total of 56 points! StriaghtShot Andra has..."]}
+
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Narration" , "param" : ["???", "Wait. Um..."]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Narration" , "param" : ["???", "It seems that StraightShot Andra has just walk off the stage..."]}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Stall" , "param" : []}
+    ]}
+    ,{
+    "operations" : [
+        {"function" : "Stall" , "param" : []}
+    ]}
+]
+
+}

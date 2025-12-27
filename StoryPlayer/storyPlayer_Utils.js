@@ -2,23 +2,8 @@
 // Visibility shall be used to disable interactions.
 
 var $ = function( id ) { return document.getElementById( id ); };
-// Story Option Functions
 
-function Scene(bg_img, state, animation, filter="", sound="", bg_Music="", chaining=true) {
-    $('Background').src = storyAssets.get(bg_img + "_" + state).src;
-
-    let retu = null;        // Append animation to target.
-    if (chaining) {     // If this animation is to be chained (in series) with other animations. Only move on OnFinish.
-        retu = storyAnimations.get(animation)('Background', 1000, true);
-    }
-    else {      // Else, start animation and move on.
-        retu = Promise.resolve();
-    }
-    //set sound to make -----
-    //set new bg music -----
-    return retu;
-}
-
+//--------------------------------Story Option Functions--------------------------------
 function Voice(text, filter="") {
     console.log("Voicing: " + text);
     logText(" ", text);
@@ -30,7 +15,7 @@ function Voice(text, filter="") {
 }
 
 
-function Narration(speaker='', text='', filter="") {
+function Narration(speaker='', text='', filter='') {
     console.log("Narrating: " + text);
     logText(speaker, text);
     $('Overlay').style.opacity = 1;
@@ -52,6 +37,76 @@ function ResetBox() {
     return Promise.resolve();
 }
 
+function Background(image="", x=0, y=0, xScale=1, yScale=1, fadetime=1000, chaining=true) {
+    let bg = $('Background');
+    blocked = chaining;
+    let retu = Promise.resolve();
+    bg.style.opacity = 0;
+    bg.src = image;
+    bg.style.left = `${50 + x}%`;
+    bg.style.top = `${50 + y}%`;
+    bg.style.transform = `scale(${xScale}, ${yScale}) translate(-50%, -50%)`;
+    if (fadetime > 0) {
+        let anim = bg.animate([{opacity: 0}, {opacity: 1}],{duration: fadetime, fill: 'forwards'});
+        retu = anim.finished;
+    }
+    if (chaining) {
+        return retu.then(()=>{blocked = false});
+    }
+    else {
+        return Promise.resolve().then(()=>{blocked = false});
+    }
+
+}
+
+function ImageShow(layer=0, image="", x=0, y=0, xScale=1, yScale=1, fadetime=0, chaining=true) {
+    let target = layerList[layer];
+    blocked = chaining;
+    let retu = Promise.resolve();
+    target.src = image;
+    target.style.visibility = 'visible';
+    target.style.left = `${50 + x}%`;
+    target.style.top = `${50 + y}%`;
+    target.style.transform = `translate(-50%, -50%) scale(${xScale}, ${yScale})`;
+    if (fadetime > 0) {
+        let anim = target.animate([{opacity: 0}, {opacity: 1}],{duration: fadetime, fill: 'forwards'});
+        retu = anim.finished;
+    }
+    if (chaining) {
+        return retu.then(()=>{blocked = false});
+    }
+    else {
+        return Promise.resolve().then(()=>{blocked = false});
+    }
+}
+
+function ImageTween(layer=0, xFrom=0, yFrom=0, xTo=0, yTo=0, xScaleFrom=1, yScaleFrom=1, xScaleTo=1, yScaleTo=1, duration=1000, chaining=false) {
+    let target = layerList[layer];
+    blocked = chaining;
+    let retu = Promise.resolve();
+    target.style.left = `${50 + xFrom}%`;
+    target.style.top = `${50 + yFrom}%`;
+    target.style.transform = `translate(-50%, -50%) scale(${xScaleFrom}, ${yScaleFrom})`;
+    if (duration > 0) {
+        let start = {left: `${50+xFrom}%`, top: `${50+yFrom}%`, transform: `translate(-50%, -50%) scale(${xScaleFrom}, ${yScaleFrom})`};
+        let fin = {left: `${50+xTo}%`, top: `${50+yTo}%`, transform: `translate(-50%, -50%) scale(${xScaleTo}, ${yScaleTo})`};
+        let anim = target.animate([start, fin], {duration: duration, fill: 'forwards'});
+        retu = anim.finished;
+    }
+    else {
+        target.style.left = `${50 + xTo}%`;
+        target.style.top = `${50 + yTo}%`;
+        target.style.transform = `scale(${xScaleTo}, ${yScaleTo})`;
+    }
+    if (chaining) {
+        return retu.then(()=>{blocked = false});
+    }
+    else {
+        return Promise.resolve().then(()=>{blocked = false});
+    }
+
+}
+
 function Character(focus=null, fadetime=0, chaining=true, ...characters) {
     $('Container').style.opacity = 1;
     blocked = chaining;
@@ -61,21 +116,28 @@ function Character(focus=null, fadetime=0, chaining=true, ...characters) {
         target.style.opacity = 0;
         target.style.filter = 'brightness(0.75)';
     });
-    for (let i = 0; i < characterList.length && i < charCount; i++) {
-        let char = characterList[i];
-        char.src = characters[i];
-        char.style.filter = 'brightness(1)';
-        char.style.visibility = 'visible';
-        let xPos = (100 / (charCount + 1)) * (i + 1);
-        char.style.left = `${xPos}%`;
-        if (fadetime > 0) {
-            let anim = char.animate([{opacity: 0}, {opacity: 1}],{duration: fadetime, fill: 'forwards'});
-            promises.push(anim.finished);
-        }
-        else {
-            char.style.opacity = 1;
-        }        
-    };
+    if (charCount == 0) {
+        characterList.forEach((target) => {
+            target.src = "";
+        })
+    }
+    else {
+        for (let i = 0; i < characterList.length && i < charCount; i++) {
+            let char = characterList[i];
+            char.src = characters[i];
+            char.style.filter = 'brightness(1)';
+            char.style.visibility = 'visible';
+            let xPos = (100 / (charCount + 1)) * (i + 1);
+            char.style.left = `${xPos}%`;
+            if (fadetime > 0) {
+                let anim = char.animate([{opacity: 0}, {opacity: 1}],{duration: fadetime, fill: 'forwards'});
+                promises.push(anim.finished);
+            }
+            else {
+                char.style.opacity = 1;
+            }        
+        };
+    }
 
     if (focus != null) {
         for (let i = 0; i < characterList.length; i++) {
@@ -156,26 +218,23 @@ function Delay(time) {
 }
 
 function Stall() {
-    return Promise.resolve(console.log("Stalling..."))
+    return Promise.resolve(console.log("Stalling..."));
 }
 
 var storyFunctions = new Map();
 
-storyFunctions.set('Scene', Scene);
 storyFunctions.set('Voice', Voice);
 storyFunctions.set('Narration', Narration);
 storyFunctions.set('ResetBox', ResetBox);
+storyFunctions.set('Background', Background);
+storyFunctions.set('ImageShow', ImageShow);
+storyFunctions.set('ImageTween', ImageTween);
 storyFunctions.set('Character', Character);
 storyFunctions.set('FadeOut', FadeOut);
 storyFunctions.set('Blocker', Blocker);
 storyFunctions.set('CameraShake', CameraShake);
 storyFunctions.set('Delay', Delay);
 storyFunctions.set('Stall', Stall);
-
-function orderCharacters(brightness) {
-    let characters = document.getElementsByClassName('character');
-    Array.from(characters).forEach((char) => {char.style.filter = 'brightness(' + brightness + ')';});
-}
 
 /**
  * Takes in the String data in the defined format and outputs the repective constructed element.

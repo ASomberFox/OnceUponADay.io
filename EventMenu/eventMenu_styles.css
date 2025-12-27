@@ -65,6 +65,7 @@ body {
 
 #trust {
     position: absolute;
+    width: 36ch;
     transform: translate(-50%, -50%);
 }
 

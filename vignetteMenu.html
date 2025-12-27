@@ -13,16 +13,25 @@
     <img id="bgOverlay">
     <img id="banner" class="banner" alt="HeartDash Banner">
     <div id="stories" class="stories"></div>
-    <img id="Back" src="./VignetteMenu/imgs/btn_backbutton.png"
+
+    <div id="Header"
         style="position: absolute;
-            top: 1ch; 
-            left: 1ch; 
-            height: 7%;">
-    <img id="Home" src="./VignetteMenu/imgs/btn_topmenu_home.png"
-        style="position: absolute;
-            top: 1ch; 
-            left: 17.625ch; 
-            height: 7%;">
+            top: 1ch;
+            left: 1ch;
+            height: 7%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;">
+        <img id="Back" src="./EventMenu/imgs/btn_backbutton.png"
+            style="height: 100%;"
+            data-url="index.html"
+            data-target="">
+
+        <img id="Home" src="./EventMenu/imgs/btn_topmenu_home.png"
+            style="height: 100%;"
+            data-url="index.html"
+            data-target="">
+    </div>
 
     <img id="LS" class="loadingScreen" src="imgs/UI/maxresdefault.jpg">
 

@@ -24,6 +24,8 @@ x Implement the text appending to Transcript.
             x Make character elements generic.
             x Character positioning is = x(100/ (number of characters + 1)) * character index%
             - Modify background setup
+            - Add Image command
+            - Add Image Tweening command
 
 
 

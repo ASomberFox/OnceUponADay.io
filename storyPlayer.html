@@ -12,55 +12,27 @@
 <body class="Story-Player">
     <!-- Story Player -->
     <div id="Story-box">
-        <div id="Items"
-            style="position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    top: 0%;
-                    bottom: 0%;
-                    left: 0%;
-                    right: 0%;">
-            <img id="Background"   class="background" src="./imgs/bg/empty.jpg">
-            <div id="Container"
-                style="position:absolute;
-                        width: 100%;
-                        height: 100%;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);">
+        <div id="Items" class="fill">
+            <img id="Background" class="background" src="./imgs/bg/empty.jpg">
+            <div id="Container" class="fill">
             </div>
         </div>
-        <div id="Overlay"   class="overlay"></div>
-        <div id="Text"
-            style="text-align: right;
-                    color: #aaaaaa;
-                    width: fit-content;
-                    margin: 0;
-                    bottom: 15%;
-                    right: 70%;
-                    font-size: calc(var(--true-height) *.045);
-                    font-weight: normal;
-                    position: absolute;">
+        <div id="Overlay" class="overlay"></div>
+        <div id="Text" class="text">
             <div id="Speaker"     class="speaker"></div>
             <div id="Dialouge"    class="dialouge"></div>
         </div>
-        <div id="Voice"   
-            class="voice"
-            style="opacity: 1;"> 
+        <div id="Voice" class="voice" style="opacity: 1;"> 
         </div>
 
-        <div id="Blocker"   class="blocker"></div>
+        <div id="Blocker" class="blocker"></div>
     
-        <div id="SB_interactions"  onclick="nextFrame()"
-            style="position: absolute;
-                    width: 100%;
-                    height: 100%;">
+        <div id="SB_interactions" class="fill" onclick="nextFrame()">
         </div>
         <!-- Story Transcript -->
         <div id="Transcript" onclick="hideTranscript()">
             <div id="Story_Text">
                 <div id="Current_Text" class="logPointer">▶</div>
-
             </div>
         </div>
         <!-- Story Skip Meanu -->

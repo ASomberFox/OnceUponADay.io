@@ -10,8 +10,8 @@ var preloadList = [];   // List of all assets to preload.
 var summaryData = [];
 var storyFrames = [];   // Story data for each frame.
 var storyAssets = new Map();   // List of all story assets.
-var characterSet = new Set();   // List of all unique characters in this story.
 var characterList = []; // List of all character elements in the story.
+var layerList = [];
 var isTyping = false;
 var blocked = false;
 var backPage = localStorage.getItem('backPage');
@@ -28,6 +28,7 @@ function loadStory(script_path) {
             console.log("Story assets: " + data.preload);
 
             let charCount = 0;
+            let layerCount = 0;
             preloadList.forEach((obj) => {      // Load the data of each preload file.
                 let ele = loadData(obj);
                 if (ele.className == 'character') {     // Add any assets marked as characters for a set to make target elements.
@@ -39,6 +40,16 @@ function loadStory(script_path) {
                     $('Container').appendChild(genericChar);
                     characterList.push(genericChar);
                     charCount += 1;
+                }
+                if (ele.className == 'layer') {     // Add any assets marked as characters for a set to make target elements.
+                    let genericLayer = loadData({"type" : "layer",
+                                    "name" : "layer" + layerCount,
+                                    "state": "neutral",
+                                    "path" : "./imgs/char/missing.png",
+                                    "transformation" : "translate(-50%, -50%)"});
+                    $('Items').appendChild(genericLayer);
+                    layerList.push(genericLayer);
+                    layerCount += 1;
                 }
                 storyAssets.set(ele.alt, ele);
             });            

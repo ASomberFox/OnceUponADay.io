@@ -8,7 +8,8 @@
 
 "stories" : [
     {"title" : "Heart Dash", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "/Stories/HeartDash.json"},
-    {"title" : "Straight Shot", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Andra/neutral.png", "path" : "/Stories/StraightShot.json"}
+    {"title" : "Straight Shot", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Andra/neutral.png", "path" : "/Stories/StraightShot.json"},
+    {"title" : "Old Wounds", "background" : "./imgs/bg/Background-Kazimierz_Arena.png", "item" : "./imgs/char/Zofia/neutral.png", "path" : "/Stories/OldWounds.json"}
 ],
 
 "locked" : [
