@@ -60,6 +60,8 @@ function loadStory(script_path) {
             $('Series').textContent = summaryData.Series;
             $('Summary-Text').textContent = summaryData.Summary;
 
+            $('Watermark').textContent = data.watermark;
+
             storyFrames = data.storyFrames;     // Store the story frames.
 
             console.log("Loading Complete!");

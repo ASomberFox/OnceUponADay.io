@@ -302,3 +302,12 @@ body {
     font-size: 0;
 }
 
+.watermark {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 20ch;
+    color: #ffffff10;
+    text-align: center;
+}

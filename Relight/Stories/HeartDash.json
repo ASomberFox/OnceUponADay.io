@@ -1,6 +1,6 @@
 {
 "preload" : [
-    {"type" : "background", "name" : "Stadium1", "state": "open", "path" : "./imgs/bg/test_1.png", "transformation" : ""},
+    {"type" : "background", "name" : "Stadium1", "state": "open", "path" : "./imgs/bg/Background-Kazimierz_Arena.png", "transformation" : ""},
     {"type" : "character", "name" : "Kezia", "state": "neutral", "path" : "./imgs/char/Kezia/neutral.png", "transformation" : "translate(-50%, -50%)"},
     {"type" : "character", "name" : "Kezia", "state": "happy", "path" : "./imgs/char/Kezia/happy.png", "transformation" : "translate(-50%, -50%)"},
     {"type" : "character", "name" : "Kezia", "state": "angry", "path" : "./imgs/char/Kezia/angry.png", "transformation" : "translate(-50%, -50%)"},
@@ -21,12 +21,13 @@
     }
 ,
 
+"watermark" : "Example Dialogues",
 
 "storyFrames" : [
     {
     "operations" : [
         {"function" : "ResetBox" , "param" : [""]},
-        {"function" : "Scene" , "param" : ["Stadium1", "open", "fadeIn"]},
+        {"function" : "Background" , "param" : ["./imgs/bg/Background-Kazimierz_Arena.png", 0, 0, 1.1, 1.1, 1500]},
         {"function" : "Delay" , "param" : [1000]},
         {"function" : "Voice" , "param" : ["In these neon lit lands.", ""]}
     ]}
