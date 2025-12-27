@@ -106,6 +106,22 @@ function nextFrame() {
     }
 }
 
+function setScreenState() {
+    $('Fullscreen').style.visibility = (document.fullscreenElement) ? 'hidden' : 'visible';
+    $('Minscreen').style.visibility = (document.fullscreenElement) ? 'visible' : 'hidden';
+}
+
+function changeScreenState() {
+    if (document.fullscreenElement) {
+        document.exitFullscreen()
+        .then(() => {setScreenState()});
+    }
+    else {
+        document.documentElement.requestFullscreen()
+        .then(() => {setScreenState()});
+    }
+}
+
 // Enables play by spacebar
 window.addEventListener('keydown', function(event) {
     if (event.key == ' ') {
@@ -114,4 +130,5 @@ window.addEventListener('keydown', function(event) {
 })
 
 // Run Scritps
+setScreenState();
 loadStory(localStorage.getItem('script_path'));
