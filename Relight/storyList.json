@@ -7,11 +7,11 @@
 "bg_color" : "#9c1503",
 
 "stories" : [
-    {"state" : true, "title" : "Heart Dash", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "/Stories/HeartDash.json"},
-    {"state" : true, "title" : "Straight Shot", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Andra/neutral.png", "path" : "/Stories/StraightShot.json"},
-    {"state" : false, "title" : "Bad Paperwork", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
+    {"state" : true, "title" : "Heart Dash", "background" : "./imgs/bg/Background-Kazimierz_Arena.png", "item" : "./imgs/char/Kezia/happy.png", "path" : "/Stories/HeartDash.json"},
+    {"state" : true, "title" : "Straight Shot", "background" : "./imgs/bg/Background-Kazimierz_Ghetto.png", "item" : "./imgs/char/Andra/neutral.png", "path" : "/Stories/StraightShot.json"},
+    {"state" : false, "title" : "Bad Paperwork", "background" : "./imgs/bg/Background-Kazimierz_Conference.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
     {"state" : true, "title" : "Old Wounds", "background" : "./imgs/bg/Background-Kazimierz_Arena.png", "item" : "./imgs/char/Zofia/neutral.png", "path" : "/Stories/OldWounds.json"},
-    {"state" : false, "title" : "Game Match", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
+    {"state" : false, "title" : "Game Match", "background" : "./imgs/bg/SC-A_Lone_Soul.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
     {"state" : false, "title" : "Confrontation", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
     {"state" : false, "title" : "Number One Fan", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""},
     {"state" : false, "title" : "Mob's Rule", "background" : "./imgs/bg/test_1.png", "item" : "./imgs/char/Kezia/happy.png", "path" : ""}
