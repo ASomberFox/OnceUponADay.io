@@ -22,15 +22,13 @@ function loadMenu(input) {
             console.log("Story assets: " + data.stories);
 
             vignettes.forEach((obj) => {      // Load the data of each vignette file.
-                let ele = makeVignette(obj);
-                storyAssets.set(ele.id, ele);
-            });
-
-            locked = data.locked;         // Store the preload file data.
-            console.log("Story assets: " + data.locked);
-
-            locked.forEach((obj) => {      // Setup the locked vignettes.
-                let ele = makeLockedVignette(obj);
+                let ele = null;
+                if (obj.state) {
+                    ele = makeVignette(obj);
+                }
+                else {
+                    ele = makeLockedVignette(obj);
+                }
                 storyAssets.set(ele.id, ele);
             });
 

@@ -15,27 +15,27 @@
     ,"x_location" : "17.5%"
     ,"y_location" : "15%"},
     "store" : 
-        {"path" : "/imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jp"
     ,"x_location" : "15%"
     ,"y_location" : "10%"},
     "goals" : 
-        {"path" : "/imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jp"
     ,"x_location" : "20%"
     ,"y_location" : "0%"},
     "stages" :
-        {"path" : "/imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jp"
     ,"x_location" : "85%"
     ,"y_location" : "10%"},
     "extra" : 
-        {"path" : "/imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jp"
     ,"x_location" : "80%"
     ,"y_location" : "0%"},
     "medals" : 
-        {"path" : "/imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jp"
     ,"x_location" : "50%"
     ,"y_location" : "0%"},
     "newOps" : 
-        {"path" : "/imgs/error-UI.jpg"
+        {"path" : "/imgs/error-UI.jp"
     ,"x_location" : "80%"
     ,"y_location" : "80%"},
 
@@ -43,6 +43,10 @@
     "inspect" :
         {"x_location" : "85%"
     ,"y_location" : "85%"},
+
+    "checkOps" :
+        {"x_location" : "77.5%"
+    ,"y_location" : "81.5%"},
     "trust" :
         {"text" : "EARN 50% MORE TRUST DURING THE EVENT"
     ,"x_location" : "80%"

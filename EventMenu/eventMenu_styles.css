@@ -76,3 +76,11 @@ body {
     color: white;
     transform: translate(-50%, -50%);
 }
+
+#checkOps {
+    position: absolute;
+    height: 6%;
+    font-size: 4ch;
+    color: white;
+    transform: translate(-50%, -50%);
+}

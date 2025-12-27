@@ -10,6 +10,7 @@ var extra = $('extra');
 var medals = $('medals');
 var newOps = $('newOps');
 var inspect = $('inspect');
+var checkOps = $('checkOps');
 var trust = $('trust');
 
 function loadMenu(input) {
@@ -55,6 +56,8 @@ function loadMenu(input) {
 
             inspect.style.left += data.inspect.x_location;
             inspect.style.bottom += data.inspect.y_location;
+            checkOps.style.left += data.checkOps.x_location;
+            checkOps.style.bottom += data.checkOps.y_location;
             trust.textContent = data.trust.text;
             trust.style.left += data.trust.x_location;
             trust.style.bottom += data.trust.y_location;
